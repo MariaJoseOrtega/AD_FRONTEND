@@ -1,0 +1,60 @@
+<div class="grid justify-center mt-4">
+  <div class="card shadow-2xl shadow-black bg-light">
+    <div class="card-body">
+      <div class="card-title">
+        Registro  de<span class="text-primary">Actividades</span>
+      </div>
+      <div class="divider"></div>
+      <div class="grid">
+       <label for="">Usuario:</label>
+       <input class="input input-primary" type="text" name="" id="" placeholder="Usuario:" [(ngModel)]="currentEntity.usuario">
+       <label for="">Comentario:</label>
+       <input class="input input-primary" type="text" name="" id="" placeholder="Comentario:s" [(ngModel)]="currentEntity.comentario">
+       <label for="">Actividad:</label>
+       <input class="input input-primary" type="number" name="" id="" placeholder="Activida:" [(ngModel)]="currentEntity.actividad">
+       <label for="">Fecha:</label>
+       <input class="input input-primary" type="date" name="" id="" [(ngModel)]="currentEntity.created">
+
+       <div><div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Activo</span>
+
+    <input type="checkbox" class="toggle toggle-primary" [(ngModel)]="currentEntity.enabled" />
+
+  </label>
+    </div>
+<div></div>
+  </div>
+      </div>
+      <div class="card-actions">
+          <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
+          <button class="btn btn-sm">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="divider"></div>
+  <div class="card card-compact shadow-2xl shadow-black">
+    <div class="card-body">
+     <div class="card-title">Warning</div>
+     <p>Si se elimina el registro no podrá recuperarlo</p>
+      <div class="card-actions">
+          <!-- The button to open modal -->
+<label for="my-modal" class="btn modal-button btn-primary btn-xs">Eliminar</label>
+
+<!-- Put this part before body tag -->
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Estas seguro que deseas eliminarlo!</h3>
+    <p class="py-4">No se podra revertir los cambios!</p>
+    <div class="modal-action">
+      <label for="my-modal" class="btn btn-info" (click)="deleteById()">Confirmar</label>
+      <label for="my-modal" class="btn btn-warning">Cancelar!</label>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
