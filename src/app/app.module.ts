@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RolComponent } from './rol/rol.component';
+import { RegisterComponent } from './register/Register.component';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
-    RolComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

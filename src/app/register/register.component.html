@@ -1,0 +1,57 @@
+<div class="grid justify-center mt-4">
+  <div class="card shadow-2xl shadow-black">
+    <div class="card-body">
+      <div class="card-title">
+        Registo de Permisos <span class="text-primary">Registro</span>
+      </div>
+      <div class="divider"> </div>
+      <div class="grid">
+        <label for="">Detalle:</label>
+        <input class="input input-primary" type="text" detalle="" id="" placeholder="Ejemplo: Cristiano Ronaldo"
+          [(ngModel)]="currentEntity.detalle  ">
+        <label for="">Fecha Desde</label>
+        <input class="input input-primary" type="datetime-local" fechaHoraDesde="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
+          [(ngModel)]="currentEntity.fechaHoraDesde">
+        <label for="">Fecha Hasta</label>
+        <input class="input input-primary" type="datetime-local" fechaHoraHasta="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
+          [(ngModel)]="currentEntity.fechaHoraHasta">
+        <div class="form-control">
+          <label class="label cursor-pointer justify-start">
+            <input type="checkbox" class="toggle toggle-primary" [(ngModel)]="currentEntity.enabled" />
+            <span class="label-text ml-2">Activo</span>
+          </label>
+        </div>
+       </div>
+      <div class="card-actions">
+        <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
+        <button class="btn btn-sm">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"> </div>
+
+  <div class="card card-compact shadow-2xl shadow-black bg-red-500 ">
+    <div class="card-body">
+      <div class="card-title">Precaución</div>
+      <p>Si elimina el registro no prodrá recuperarlo</p>
+      <div class="card-actions">
+        <label for="my-modal-6" class="btn modal-button btn-secondary btn-xs">Eliminar</label>
+
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">Por favor confirme la eliminación</h3>
+            <p class="py-4">No se podrán revertir los cambios
+            </p>
+            <div class="modal-action">
+              <label for="my-modal-6" class="btn btn-info btn-warning" (click)="deleteById()">Confirmar</label>
+              <label for="my-modal-6" class="btn btn-info">Cancelar</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
