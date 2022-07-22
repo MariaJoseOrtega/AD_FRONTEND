@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RolComponent } from './feature/rol/rol.component';
-import { RegistroComponent } from './feature/registro/form/registro.form.component';
+import { RegistroFormComponent } from './feature/registro/form/registro.form.component';
 
 const routes: Routes = [
-  {path: 'registro', component:RegistroComponent},
-  {path: 'registro/:id', component:RegistroComponent},
+  {path: 'registro', component:RegistroFormComponent},
+  {path: 'registro/:id', component:RegistroFormComponent},
   {path: '', redirectTo: '/layout', pathMatch: 'full'},
   {path: 'layout', loadChildren:() => import('./layout/layout.module').then(m => m.LayoutModule)},
   {path: 'feature', loadChildren:() => import('./feature/feature.module').then(m => m.FeatureModule)},

@@ -11,7 +11,6 @@ import { RegistroToolbarComponent } from './registro/toolbar/registro-toolbar.co
 
 @NgModule({
   declarations: [
-    RolComponent,
     RegistroFormComponent,
     RegistroListComponent,
     RegistroToolbarComponent
