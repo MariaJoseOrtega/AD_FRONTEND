@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RolComponent } from './rol/rol.component';
-import { RegistroComponent } from './registro/registro.component';
+import { RolComponent } from './feature/rol/rol.component';
+import { RegistroComponent } from './feature/registro/form/registro.form.component';
 
 const routes: Routes = [
   {path: 'registro', component:RegistroComponent},

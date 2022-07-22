@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Registro } from './registro';
-import { RegistroService } from './registro.service';
+import { Registro } from '../registro';
+import { RegistroService } from '../registro.service';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
+  selector: 'app-registro-form',
+  templateUrl: './registro.form.component.html',
 })
-export class RegistroComponent implements OnInit {
+export class RegistroFormComponent implements OnInit {
 
   constructor(
     private registroService:RegistroService,
@@ -63,7 +63,8 @@ export class RegistroComponent implements OnInit {
   deleteById():void{
     this.registroService.deleteById(this.currentEntity.registroActividadId).subscribe(
       () =>{
-        console.log("borrando..");
+        console.log("Borrado");
+        //redireccionar ....
       }
     )
   }

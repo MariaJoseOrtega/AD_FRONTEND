@@ -29,5 +29,13 @@ export class RegistroService {
     return this.http.delete<Registro>(this.url+"/deleteById/"+id,this.httpOptions);
   }
 
+  public findAll(): Observable<Registro[]>{
+    return this.http.get<Registro[]>(this.url+"/findAll", this.httpOptions);
+  }
+
+  public findByName(term: string): Observable<Registro[]>{
+    return this.http.get<Registro[]>(this.url+"/findByName/"+term, this.httpOptions)
+  }
+
 
 }

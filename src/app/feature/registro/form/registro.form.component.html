@@ -1,3 +1,5 @@
+<app-registro-toolbar [entityName]="currentEntity.name" ></app-registro-toolbar>
+
 <div class="grid justify-center mt-4">
   <div class="card shadow-2xl shadow-black bg-light">
     <div class="card-body">
@@ -39,8 +41,7 @@
      <div class="card-title">Warning</div>
      <p>Si se elimina el registro no podrá recuperarlo</p>
       <div class="card-actions">
-          <!-- The button to open modal -->
-<label for="my-modal" class="btn modal-button btn-primary btn-xs">Eliminar</label>
+          <label for="my-modal" class="btn modal-button btn-secondary btn-xs">Eliminar</label>
 
 <!-- Put this part before body tag -->
 <input type="checkbox" id="my-modal" class="modal-toggle" />
