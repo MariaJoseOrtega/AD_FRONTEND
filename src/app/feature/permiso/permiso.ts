@@ -4,5 +4,6 @@ export interface Permiso {
     type: string,
     description: string,
     created: Date,
+    updated: Date,
     enabled: boolean
 }

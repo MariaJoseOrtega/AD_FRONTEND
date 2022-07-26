@@ -5,9 +5,9 @@ import { PermisoService } from 'src/app/feature/permiso/permiso.service';
 
 @Component({
   selector: 'app-permiso',
-  templateUrl: './permiso.component.html'
+  templateUrl: './permiso-form.component.html'
 })
-export class PermisoComponent implements OnInit {
+export class PermisoFormComponent implements OnInit {
 
   constructor(
     private permisoService: PermisoService,
@@ -21,6 +21,7 @@ export class PermisoComponent implements OnInit {
     type: "",
     description: "",
     created: new Date(),
+    updated: new Date(),
     enabled: false
   };
 
@@ -46,6 +47,7 @@ export class PermisoComponent implements OnInit {
           type: "",
           description: "",
           created: new Date(),
+          updated: new Date(),
           enabled: true
         };
       }

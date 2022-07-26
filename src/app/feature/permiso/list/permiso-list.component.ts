@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Permiso } from '../permiso';
+import { PermisoService } from '../permiso.service';
 
 @Component({
   selector: 'app-permiso-list',
@@ -6,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermisoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private permisoService: PermisoService
+  ) { }
+
+  // permisoList : Permiso[] = [];
 
   ngOnInit(): void {
   }
+
+  // public findAll():void{
+  //   this.permisoService.findAll().subscribe(
+  //     (response) =>this.permisoList = response
+  //   )
+  // }
 
 }
