@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RolComponent } from './rol/rol.component';
-
 const routes: Routes = [
-  {path: 'rol', component:RolComponent},
-  {path: 'rol/:id', component:RolComponent}
+  {path: '', redirectTo: '/layout', pathMatch: 'full'},
+  {path: 'layout', loadChildren:() => import('./layout/layuot.module'). then(m=> m.LayuotModule)},
+  {path: 'feature', loadChildren:() => import('./feature/feature.module'). then(m=> m.FeatureModule)}
 ];
 
 @NgModule({

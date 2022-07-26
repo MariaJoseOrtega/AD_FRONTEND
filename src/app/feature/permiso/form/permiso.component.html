@@ -1,0 +1,61 @@
+
+<div class="grid justify-center ">
+  <div class="card shadow-2xl shadow-black">
+    <div class="card-body bg-neutral">
+      <div class="card-title "> 
+        Tipos de <span class="text-primary ">Permisos</span>
+      </div>
+      <div class="divider"> </div>
+      <div class="grid ">
+        <label for="">Nombre:</label>
+        <input class="input input-primary" type="text" name="" id="" placeholder="Nombre del permiso"
+          [(ngModel)]="currentEntity.name">
+        <label for="">Tipo de permiso</label>
+        <input class="input input-primary" type="text" name="" id="" placeholder="De que tipo es el permiso"
+          [(ngModel)]="currentEntity.type">
+        <label for="">Descripción:</label>
+        <input class="input input-primary" type="text" name="" id="" placeholder="Descripción del permiso"
+          [(ngModel)]="currentEntity.description">
+        <div class="form-control">
+          <label class="label cursor-pointer justify-start">
+            <input type="checkbox" class="toggle toggle-accent" [(ngModel)]="currentEntity.enabled" />
+            <span class="label-text ml-2">Activo</span>
+          </label>
+        </div>
+        <input class="input input-primary" type="date" name="" id="" [(ngModel)]="currentEntity.created">
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
+        <button class="btn btn-secondary btn-sm">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"> </div>
+
+  <div class="card card-compact shadow-2xl shadow-black bg-neutral ">
+    <div class="card-body">
+      <div class="card-title">Precaución</div>
+      <p>Si elimina el registro no prodrá recuperarlo</p>
+      <div class="card-actions">
+        <label for="my-modal-6" class="btn modal-button btn-error btn-xs">Eliminar</label>
+
+        <!-- Put this part before </body> tag -->
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">Por favor confirme la eliminación</h3>
+            <p class="py-4">No se podrán revertir los cambios
+            </p>
+            <div class="modal-action">
+              <label for="my-modal-6" class="btn btn-info btn-success" (click)="deleteById()">Confirmar</label>
+              <label for="my-modal-6" class="btn btn-secondary">Cancelar</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,18 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "0b6752a8-fe06-4ffe-81d9-ef6daeae3a19"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "seguridad-frontend": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -104,6 +97,5 @@
         }
       }
     }
-  },
-  "defaultProject": "seguridad-frontend"
+  }
 }
