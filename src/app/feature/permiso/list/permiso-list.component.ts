@@ -12,15 +12,30 @@ export class PermisoListComponent implements OnInit {
     private permisoService: PermisoService
   ) { }
 
-  // permisoList : Permiso[] = [];
+  permisoList : Permiso[] = [];
 
   ngOnInit(): void {
+    this.findAll();
   }
 
-  // public findAll():void{
-  //   this.permisoService.findAll().subscribe(
-  //     (response) =>this.permisoList = response
-  //   )
-  // }
+  public findAll():void {
+    this.permisoService.findAll().subscribe(
+      (response) => this.permisoList = response
+    )
+  }
+
+  public findByName(term: string): void{
+     if (term.length>=2){
+       this.permisoService.findByName(term).subscribe(
+         (response) => this.permisoList = response
+       )
+     }
+     if (term.length===0){
+       this.findAll();
+     }
+
+   }
+
+   
 
 }

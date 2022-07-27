@@ -30,4 +30,12 @@ export class PermisoService {
     return this.http.delete<Permiso>(this.url+"/deleteById/"+id, this.httpOptions);
   }
 
+  public findAll(): Observable<Permiso[]>{
+    return this.http.get<Permiso[]>(this.url+"/findAll", this.httpOptions);
+  }
+
+  public findByName(term: string): Observable<Permiso[]>{
+     return this.http.get<Permiso[]>(this.url+"/findByName/"+term, this.httpOptions)
+   }
+
 }

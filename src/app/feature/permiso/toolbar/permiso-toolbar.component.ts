@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-permiso-toolbar',
@@ -6,9 +6,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermisoToolbarComponent implements OnInit {
 
+  @Input() entityName: string ="" ;
+  @Output() termEmitter = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public onInput(term: string){
+    this.termEmitter.emit(term);
   }
 
 }

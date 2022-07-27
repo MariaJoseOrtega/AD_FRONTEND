@@ -1,11 +1,12 @@
+<app-permiso-toolbar [entityName]="currentEntity.name" ></app-permiso-toolbar>
 
-<div class="grid justify-center ">
+<div class="grid justify-center my-3">
   <div class="card card-compact w-96 shadow-2xl shadow-black">
-    <div class="card-body">
+    <div class="card-body bg-base-200">
       <div class="card-title">
         Tipos de <span class="text-primary">Permisos</span>
       </div>
-      <div class="grid">
+      <div class="grid ">
         <label for="">Nombre:</label>
         <input class="input input-primary" type="text" name="" id="" placeholder="Nombre del permiso"
           [(ngModel)]="currentEntity.name">
@@ -21,7 +22,7 @@
             <span class="label-text ml-2">Activo</span>
           </label>
         </div>
-        <input class="input input-primary" type="date" name="" id="" [(ngModel)]="currentEntity.created">
+        <input class="input input-primary"  type="date" name="" id="" [(ngModel)]="currentEntity.created">
       </div>
       <div class="card-actions">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
@@ -33,7 +34,7 @@
   <div class="divider"> </div>
 
   <div class="card card-compact shadow-2xl shadow-black bg-black-800 ">
-    <div class="card-body">
+    <div class="card-body bg-base-200">
       <div class="card-title">Precaución</div>
       <p>Si elimina el registro no prodrá recuperarlo</p>
       <div class="card-actions">

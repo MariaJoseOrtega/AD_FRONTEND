@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: '', component:MainComponent ,
     children: [
       {path: '', component:DashboardComponent},
-      {path: 'permiso-form', component:PermisoFormComponent}, 
+      {path: 'permiso-form', component:PermisoFormComponent},
+      {path: 'permiso-form/:id', component:PermisoFormComponent}, 
       {path: 'dashboard', component:DashboardComponent},
       {path: 'permiso-list', component:PermisoListComponent}, 
     ]
