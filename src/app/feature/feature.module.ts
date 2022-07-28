@@ -7,13 +7,15 @@ import { FeatureRoutingModule } from './feature-routing.module';
 import { FormsModule } from '@angular/forms';
 import { RegistroListComponent } from './registro/list/registro-list.component';
 import { RegistroToolbarComponent } from './registro/toolbar/registro-toolbar.component';
+import { ComentarioAgregarComponent } from './comentario/comentario_agregar/comentario-agregar.component';
 
 
 @NgModule({
   declarations: [
     RegistroFormComponent,
     RegistroListComponent,
-    RegistroToolbarComponent
+    RegistroToolbarComponent,
+    ComentarioAgregarComponent,
   ],
   imports: [
     CommonModule,

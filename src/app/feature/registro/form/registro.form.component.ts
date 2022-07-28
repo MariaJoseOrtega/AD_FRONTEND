@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Registro } from '../registro';
 import { RegistroService } from '../registro.service';
+import { Comentario } from '../../comentario/comentario';
+import { ComentarioService } from '../../comentario/comentario.service';
 
 @Component({
   selector: 'app-registro-form',
@@ -11,7 +13,9 @@ export class RegistroFormComponent implements OnInit {
 
   constructor(
     private registroService:RegistroService,
-    private activatedRoute: ActivatedRoute
+    private comentarioService: ComentarioService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router,
   ) { }
 
   currentEntity: Registro =
@@ -21,7 +25,8 @@ export class RegistroFormComponent implements OnInit {
     usuario: "",
     comentario: "",
     created: new Date(),
-    enabled: true
+    enabled: true,
+    comentarios: []
   };
 
   ngOnInit(): void {
@@ -46,16 +51,24 @@ export class RegistroFormComponent implements OnInit {
           usuario: "",
           comentario: "",
           created: new Date(),
-          enabled: true
+          enabled: true,
+          comentarios: []
         };
       }
     )
   }
 
-  findById(id: number):void{
+  findById(id: number):void {
     this.registroService.findById(id).subscribe(
       (response) => {
         this.currentEntity = response;
+        this.currentEntity.comentarios.forEach(
+          (auth) => {
+            this.comentarioService.findById(auth.comentarioId).subscribe(
+              (item) => auth.opinion = item.opinion
+            )
+          }
+        )
       }
     )
   }
@@ -67,6 +80,14 @@ export class RegistroFormComponent implements OnInit {
         //redireccionar ....
       }
     )
+  }
+
+  removeComentario(id: number):void {
+
+    this.currentEntity.comentarios =
+    this.currentEntity.comentarios.filter(
+      (item) => item.comentarioId != id
+    );
   }
 
 }

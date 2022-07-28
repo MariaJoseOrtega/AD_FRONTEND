@@ -1,3 +1,5 @@
+import { Comentario } from "../comentario/comentario";
+
 export interface Registro{
   registroActividadId: number,
   actividad: number,
@@ -5,4 +7,5 @@ export interface Registro{
   comentario: string,
   created: Date,
   enabled: boolean,
+  comentarios: Comentario[]
 }
