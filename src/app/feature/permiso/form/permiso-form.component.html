@@ -16,6 +16,11 @@
         <label for="">Descripción:</label>
         <input class="input input-primary" type="text" name="" id="" placeholder="Descripción del permiso"
           [(ngModel)]="currentEntity.description">
+
+          <label>Usuario:</label>
+          <app-person-combobox></app-person-combobox>
+          
+
         <div class="form-control">
           <label class="label cursor-pointer justify-start">
             <input type="checkbox" class="toggle toggle-accent" [(ngModel)]="currentEntity.enabled" />

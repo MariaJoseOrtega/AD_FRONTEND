@@ -6,6 +6,7 @@ import { PermisoFormComponent } from './permiso/form/permiso-form.component';
 import { FormsModule } from '@angular/forms';
 import { PermisoListComponent } from './permiso/list/permiso-list.component';
 import { PermisoToolbarComponent } from './permiso/toolbar/permiso-toolbar.component';
+import { PersonComboboxComponent } from './person/person-combobox/person-combobox.component';
 
 
 
@@ -13,7 +14,8 @@ import { PermisoToolbarComponent } from './permiso/toolbar/permiso-toolbar.compo
   declarations: [
     PermisoFormComponent,
     PermisoListComponent,
-    PermisoToolbarComponent
+    PermisoToolbarComponent,
+    PersonComboboxComponent
   ],
   imports: [
     CommonModule,

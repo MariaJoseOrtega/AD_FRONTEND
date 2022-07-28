@@ -1,0 +1,6 @@
+<select class="select select-primary w-full max-w-xs">
+    <option disabled selected>Selecione</option>
+    <option *ngFor= "let person of persons">
+        {{person.name}}
+    </option>
+  </select>
