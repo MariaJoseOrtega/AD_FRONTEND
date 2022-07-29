@@ -66,7 +66,7 @@ export class RegistroFormComponent implements OnInit {
         this.currentEntity = response;
         this.currentEntity.comentarios.forEach(
           (auth) => {
-            this.comentarioService.findById(auth.Id).subscribe(
+            this.comentarioService.findById(auth.comentarioId).subscribe(
               (item) => auth.opinion = item.opinion
             )
           }
@@ -88,7 +88,7 @@ export class RegistroFormComponent implements OnInit {
 
     this.currentEntity.comentarios =
     this.currentEntity.comentarios.filter(
-      (item) => item.Id != id
+      (item) => item.comentarioId != id
     );
   }
 
