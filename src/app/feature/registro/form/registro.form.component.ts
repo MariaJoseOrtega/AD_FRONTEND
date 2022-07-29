@@ -23,7 +23,7 @@ export class RegistroFormComponent implements OnInit {
     registroActividadId: 0,
     actividad: 0,
     usuario: "",
-    comentario: "",
+    descripcion: "",
     created: new Date(),
     enabled: true,
     comentarios: []
@@ -49,7 +49,7 @@ export class RegistroFormComponent implements OnInit {
           registroActividadId: 0,
           actividad: 0,
           usuario: "",
-          comentario: "",
+          descripcion: "",
           created: new Date(),
           enabled: true,
           comentarios: []
