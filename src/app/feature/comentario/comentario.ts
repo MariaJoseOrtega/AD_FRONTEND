@@ -1,4 +1,4 @@
 export interface Comentario {
-  comentarioId: number,
+  Id: number,
   opinion: string
 }
