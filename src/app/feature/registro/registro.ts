@@ -5,6 +5,7 @@ export interface Registro{
   actividad: number,
   usuario: string,
   descripcion: string,
+  fecha: Date,
   created: Date,
   enabled: boolean,
   comentarios: Comentario[]

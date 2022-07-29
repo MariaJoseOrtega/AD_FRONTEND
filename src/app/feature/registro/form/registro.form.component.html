@@ -8,19 +8,19 @@
       </div>
       <div class="divider"></div>
       <div class="grid">
-       <label for="">Usuario:</label>
-       <input class="input input-primary" type="text" name="" id="" placeholder="Usuario:" [(ngModel)]="currentEntity.usuario">
+        <label for="">Actividad:</label>
+       <input class="input input-primary" type="number" name="" id="" placeholder="Activida:" [(ngModel)]="currentEntity.actividad">
        <label for="">Descripcion:</label>
        <input class="input input-primary" type="text" name="" id="" placeholder="Comentario:s" [(ngModel)]="currentEntity.descripcion">
-       <label for="">Actividad:</label>
-       <input class="input input-primary" type="number" name="" id="" placeholder="Activida:" [(ngModel)]="currentEntity.actividad">
+       <label for="">Usuario:</label>
+       <input class="input input-primary" type="text" name="" id="" placeholder="Usuario:" [(ngModel)]="currentEntity.usuario">
        <label for="">Fecha:</label>
+       <input class="input input-primary" type="date" name="" id="" [(ngModel)]="currentEntity.fecha">
        <input class="input input-primary" type="date" name="" id="" [(ngModel)]="currentEntity.created">
 
        <div><div class="form-control">
   <label class="label cursor-pointer">
     <span class="label-text">Activo</span>
-
     <input type="checkbox" class="toggle toggle-primary" [(ngModel)]="currentEntity.enabled" />
 
   </label>
@@ -32,7 +32,7 @@
         <thead>
           <tr>
             <th>Comentarios</th>
-            <th>Emiminar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>

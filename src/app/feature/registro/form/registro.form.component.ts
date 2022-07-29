@@ -24,6 +24,7 @@ export class RegistroFormComponent implements OnInit {
     actividad: 0,
     usuario: "",
     descripcion: "",
+    fecha: new Date(),
     created: new Date(),
     enabled: true,
     comentarios: []
@@ -50,6 +51,7 @@ export class RegistroFormComponent implements OnInit {
           actividad: 0,
           usuario: "",
           descripcion: "",
+          fecha: new Date(),
           created: new Date(),
           enabled: true,
           comentarios: []
