@@ -18,8 +18,9 @@
           [(ngModel)]="currentEntity.description">
 
           <label>Usuario:</label>
-          <app-person-combobox></app-person-combobox>
-          
+          <app-person-combobox (personEmitter)="selectPerson($event)" [personId]="currentEntity.personId">
+          </app-person-combobox>
+
 
         <div class="form-control">
           <label class="label cursor-pointer justify-start">

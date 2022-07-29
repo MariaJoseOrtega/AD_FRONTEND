@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Permiso } from 'src/app/feature/permiso/permiso';
 import { PermisoService } from 'src/app/feature/permiso/permiso.service';
 
@@ -11,10 +11,11 @@ export class PermisoFormComponent implements OnInit {
 
   constructor(
     private permisoService: PermisoService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+     private router:Router
   ) { }
 
-  currentEntity: Permiso = 
+  currentEntity: Permiso =
   {
     permisoId: 0,
     name: "",
@@ -22,7 +23,8 @@ export class PermisoFormComponent implements OnInit {
     description: "",
     created: new Date(),
     updated: new Date(),
-    enabled: false
+    enabled: false,
+    personId: 0
   };
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class PermisoFormComponent implements OnInit {
     this.permisoService.save(this.currentEntity)
     .subscribe(
       () => {
-        this.currentEntity = 
+        this.currentEntity =
         {
           permisoId: 0,
           name: "",
@@ -48,7 +50,8 @@ export class PermisoFormComponent implements OnInit {
           description: "",
           created: new Date(),
           updated: new Date(),
-          enabled: true
+          enabled: true,
+          personId: 0
         };
       }
     )
@@ -69,6 +72,10 @@ export class PermisoFormComponent implements OnInit {
         //redireccionar ....
       }
     )
+  }
+
+  selectPerson(id: number){
+  this.currentEntity.personId=id;
   }
 
 }

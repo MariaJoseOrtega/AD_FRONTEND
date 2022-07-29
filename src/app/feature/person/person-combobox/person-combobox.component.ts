@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Person } from '../person';
 import { PersonService } from '../person.service';
 
@@ -14,6 +14,9 @@ export class PersonComboboxComponent implements OnInit {
 
   persons: Person[]=[];
 
+  @Output() personEmitter = new EventEmitter<number>();
+  @Input() personId: number = 0;
+
   ngOnInit(): void {
     this.findAll();
   }
@@ -23,6 +26,11 @@ export class PersonComboboxComponent implements OnInit {
       (respose) => this.persons = respose
     )
 
+    }
+
+    public onSelect(id:string){
+      console.log("El id del usuario es" + parseInt(id));
+      this.personEmitter.emit(parseInt(id));
     }
 
 }
