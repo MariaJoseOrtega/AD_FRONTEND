@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Permiso } from 'src/app/feature/permiso/permiso';
 import { PermisoService } from 'src/app/feature/permiso/permiso.service';
+import { AuthorityService } from '../../authority/authority.service';
 
 @Component({
   selector: 'app-permiso',
@@ -12,7 +13,8 @@ export class PermisoFormComponent implements OnInit {
   constructor(
     private permisoService: PermisoService,
     private activatedRoute: ActivatedRoute,
-     private router:Router
+    private authorityService: AuthorityService,
+    private router:Router
   ) { }
 
   currentEntity: Permiso =
@@ -24,7 +26,8 @@ export class PermisoFormComponent implements OnInit {
     created: new Date(),
     updated: new Date(),
     enabled: false,
-    personId: 0
+    personId: 0,
+    authorities: []
   };
 
   ngOnInit(): void {
@@ -51,7 +54,8 @@ export class PermisoFormComponent implements OnInit {
           created: new Date(),
           updated: new Date(),
           enabled: true,
-          personId: 0
+          personId: 0.,
+          authorities: []
         };
       }
     )
@@ -61,6 +65,13 @@ export class PermisoFormComponent implements OnInit {
     this.permisoService.findById(id).subscribe(
       (response) => {
         this.currentEntity = response;
+        this.currentEntity.authorities.forEach(
+          (auth) => {
+            this.authorityService.findById(auth.id).subscribe(
+              (item) => auth.name = item.name
+            )
+          }
+        )
       }
     )
   }
@@ -76,6 +87,14 @@ export class PermisoFormComponent implements OnInit {
 
   selectPerson(id: number){
   this.currentEntity.personId=id;
+  }
+
+  removeAuthority(id: number):void {
+
+    this.currentEntity.authorities =
+    this.currentEntity.authorities.filter(
+      (item) => item.id != id
+    );
   }
 
 }

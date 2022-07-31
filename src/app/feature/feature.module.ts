@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { PermisoListComponent } from './permiso/list/permiso-list.component';
 import { PermisoToolbarComponent } from './permiso/toolbar/permiso-toolbar.component';
 import { PersonComboboxComponent } from './person/person-combobox/person-combobox.component';
-
+import { AuthoritySearchComponent } from './authority/authority-search/authority-search.component';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { PersonComboboxComponent } from './person/person-combobox/person-combobo
     PermisoFormComponent,
     PermisoListComponent,
     PermisoToolbarComponent,
-    PersonComboboxComponent
+    PersonComboboxComponent,
+    AuthoritySearchComponent
   ],
   imports: [
     CommonModule,

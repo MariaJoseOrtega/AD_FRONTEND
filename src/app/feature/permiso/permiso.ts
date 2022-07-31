@@ -1,3 +1,5 @@
+import { Authority } from "../authority/authority";
+
 export interface Permiso {
     permisoId: number,
     name: string,
@@ -6,5 +8,6 @@ export interface Permiso {
     created: Date,
     updated: Date,
     enabled: boolean,
-    personId: number 
+    personId: number,
+    authorities: Authority[]
 }
