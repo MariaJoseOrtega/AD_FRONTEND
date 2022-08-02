@@ -28,7 +28,7 @@ export class ComentarioService {
   }
 
   public findByComentario(term: string): Observable<Comentario[]>{
-    return this.http.get<Comentario[]>(this.url+"/findByComentario/"+term, this.httpOptions);
+    return this.http.get<Comentario[]>(this.url+"/findByOpinion/"+term, this.httpOptions);
   }
   
 }

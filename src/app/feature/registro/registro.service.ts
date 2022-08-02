@@ -34,7 +34,7 @@ export class RegistroService {
   }
 
   public findByName(term: string): Observable<Registro[]>{
-    return this.http.get<Registro[]>(this.url+"/findByName/"+term, this.httpOptions)
+    return this.http.get<Registro[]>(this.url+"/findByList/"+term, this.httpOptions)
   }
 
 
