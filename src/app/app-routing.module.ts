@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/Register.component';
 
 const routes: Routes = [
-  {path: 'register', component:RegisterComponent},
-  {path: 'register/:id', component:RegisterComponent}
+  {path: '', redirectTo: '/layout', pathMatch: 'full'},
+  {path: 'layout', LoadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)},
+  {path: 'feature', LoadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)}
 ];
 
 @NgModule({

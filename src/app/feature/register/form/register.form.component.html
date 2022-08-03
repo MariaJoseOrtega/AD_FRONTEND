@@ -1,8 +1,9 @@
+<app.register.toolbar [entityName]="currentEntity.detalle"></app.register.toolbar>
 <div class="grid justify-center mt-4">
   <div class="card shadow-2xl shadow-black">
     <div class="card-body">
       <div class="card-title">
-        Registo de Permisos Docentes <span class="text-primary">Registro</span>
+        Registo de Permisos <span class="text-primary">Registro</span>
       </div>
       <div class="divider"> </div>
       <div class="grid">
@@ -10,10 +11,10 @@
         <input class="input input-primary" type="text" detalle="" id="" placeholder="Ejemplo: Cristiano Ronaldo"
           [(ngModel)]="currentEntity.detalle  ">
         <label for="">Fecha Desde</label>
-        <input class="input input-primary" type="datetime" fechaHoraDesde="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
+        <input class="input input-primary" type="datetime-local" fechaHoraDesde="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
           [(ngModel)]="currentEntity.fechaHoraDesde">
         <label for="">Fecha Hasta</label>
-        <input class="input input-primary" type="datetime" fechaHoraHasta="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
+        <input class="input input-primary" type="datetime-local" fechaHoraHasta="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
           [(ngModel)]="currentEntity.fechaHoraHasta">
         <div class="form-control">
           <label class="label cursor-pointer justify-start">

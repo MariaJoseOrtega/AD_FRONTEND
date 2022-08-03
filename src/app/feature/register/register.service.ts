@@ -7,6 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegisterService {
+  findByName(term: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private http: HttpClient
@@ -30,4 +33,11 @@ export class RegisterService {
     return this.http.delete<Register>(this.url+"/deleteById/"+id, this.httpOptions);
   }
 
+  public findAll(): Observable<Register[]>{
+    return this.http.get<Register[]>(this.url+"/findAll", this.httpOptions);
+  }
+
+  public findByDetalle(tern: string):  Observable<Register[]>{
+    return this.http.get<Register[]>(this.url+"/findByDetalle/"+tern, this.httpOptions)
+  }
 }
