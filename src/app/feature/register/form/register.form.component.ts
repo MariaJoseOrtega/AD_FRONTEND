@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Register } from './register';
-import { RegisterService } from './register.service';
+import { Register } from '../register';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.form.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class RegisterFormComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterFormComponent } from './feature/register/form/register.form.component';
-import { RegisterListComponent } from './feature/register/list/register-list.component';
+import { RegisterFormComponent } from '../feature/register/form/register.form.component';
+import { RegisterListComponent } from '../feature/register/list/register-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
 
