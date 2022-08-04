@@ -4,7 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LayoutRoutingModule } from './layuot-routing.module';
+import { LayoutRoutingModule } from './layout-routing.module';
 
 
 
