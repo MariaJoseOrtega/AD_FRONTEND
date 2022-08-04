@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Rol } from './rol';
-import { RolService } from './rol.service';
+import { Rol } from 'src/app/feature/rol/rol';
+import { RolService } from 'src/app/feature/rol/rol.service';
 
 @Component({
   selector: 'app-rol',

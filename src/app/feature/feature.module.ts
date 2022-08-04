@@ -18,7 +18,7 @@ import { RegistroToolbarComponent } from './registro/toolbar/registro-toolbar.co
 import { ComentarioAgregarComponent } from './comentario/comentario_agregar/comentario-agregar.component';
 
 //Rol
-import { RolComponent } from './rol/rol.component';
+import { RolComponent } from './rol/form//rol.component';
 
 
 @NgModule({
@@ -32,6 +32,7 @@ import { RolComponent } from './rol/rol.component';
     RegistroListComponent,
     RegistroToolbarComponent,
     ComentarioAgregarComponent,
+    RolComponent
   ],
   imports: [
    CommonModule,
