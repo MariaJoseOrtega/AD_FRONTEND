@@ -4,7 +4,7 @@ import { Register } from '../register';
 import { RegisterService } from '../register.service';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-register-form',
   templateUrl: './register.form.component.html'
 })
 export class RegisterFormComponent implements OnInit {
