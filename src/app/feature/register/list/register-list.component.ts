@@ -20,14 +20,14 @@ export class RegisterListComponent implements OnInit {
 
   public findAll():void {
     this.registerService.findAll().subscribe(
-      (response) => this.registerList = (response)
+      (response) => this.registerList = response
     )
   }
 
   public findByDetalle(term: string): void{
     if (term.length>=2){
       this.registerService.findByDetalle(term).subscribe(
-        (response) => this.registerList = (response)
+        (response) => this.registerList = response
       )
     }
     if (term.length===0){

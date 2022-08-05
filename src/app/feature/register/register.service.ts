@@ -37,7 +37,7 @@ export class RegisterService {
     return this.http.get<Register[]>(this.url+"/findAll", this.httpOptions);
   }
 
-  public findByDetalle(tern: string):  Observable<Register[]>{
-    return this.http.get<Register[]>(this.url+"/findByDetalle/"+tern, this.httpOptions)
+  public findByDetalle(term: string):  Observable<Register[]>{
+    return this.http.get<Register[]>(this.url+"/findByDetalle/"+term, this.httpOptions)
   }
 }
