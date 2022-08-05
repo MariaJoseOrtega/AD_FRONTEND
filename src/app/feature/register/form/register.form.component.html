@@ -7,6 +7,8 @@
       </div>
       <div class="divider"> </div>
       <div class="grid">
+        <label>Permiso</label>
+          <app-permiso-combobox (permisoIdEmitter)="currentEntity.permisoId=$event" [permisoId]="currentEntity.permisoId"></app-permiso-combobox>
         <label for="">Detalle:</label>
         <input class="input input-primary" type="text" detalle="" id="" placeholder="Ejemplo: Cristiano Ronaldo"
           [(ngModel)]="currentEntity.detalle  ">
@@ -16,7 +18,7 @@
         <label for="">Fecha Hasta</label>
         <input class="input input-primary" type="datetime-local" fechaHoraHasta="" id="" placeholder="Ejemplo: 01/01/1111 00:00"
           [(ngModel)]="currentEntity.fechaHoraHasta">
-        <div class="form-control">
+          <div class="form-control">
           <label class="label cursor-pointer justify-start">
             <input type="checkbox" class="toggle toggle-primary" [(ngModel)]="currentEntity.enabled" />
             <span class="label-text ml-2">Activo</span>
@@ -24,7 +26,7 @@
         </div>
        </div>
       <div class="card-actions">
-        <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
+        <button><a class="btn btn-primary btn-sm" (click)="save()">Guardar</a></button>
         <button class="btn btn-sm">Cancelar</button>
       </div>
     </div>

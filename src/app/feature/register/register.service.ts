@@ -21,8 +21,8 @@ export class RegisterService {
 
   private url: string = "http://localhost:8080/api/register";
 
-  public save(person: Register): Observable<Register>{
-    return this.http.post<Register>(this.url+"/save", person, this.httpOptions);
+  public save(register: Register): Observable<Register>{
+    return this.http.post<Register>(this.url+"/save", register, this.httpOptions);
   }
 
   public findById(id: number): Observable<Register>{

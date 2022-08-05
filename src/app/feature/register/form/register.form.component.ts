@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Register } from '../register';
 import { RegisterService } from '../register.service';
 
@@ -11,7 +11,8 @@ export class RegisterFormComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   currentEntity: Register =
@@ -21,7 +22,8 @@ export class RegisterFormComponent implements OnInit {
     fechaHoraDesde: new Date(),
     fechaHoraHasta: new Date(),
     created: new Date(),
-    enabled: true
+    enabled: true,
+    permisoId: 0
   };
 
   ngOnInit(): void {
@@ -46,8 +48,10 @@ export class RegisterFormComponent implements OnInit {
           fechaHoraDesde: new Date(),
           fechaHoraHasta: new Date(),
           created: new Date(),
-          enabled: true
+          enabled: true,
+          permisoId: 0
         };
+        this.router.navigate(['/layout/register-list']);
       }
     )
   }

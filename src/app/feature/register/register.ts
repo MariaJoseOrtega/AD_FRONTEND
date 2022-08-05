@@ -6,5 +6,6 @@ export interface Register {
     fechaHoraDesde: Date,
     fechaHoraHasta: Date,
     created: Date,
-    enabled: boolean
+    enabled: boolean,
+    permisoId: number
 }
