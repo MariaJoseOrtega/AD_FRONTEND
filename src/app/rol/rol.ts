@@ -6,7 +6,4 @@ export interface Rol {
   archived:boolean,
   updated:Date,
   created: Date
-
-
-
 }
