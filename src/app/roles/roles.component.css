@@ -1,0 +1,21 @@
+.pantalla{
+    padding: 2%;
+    
+}
+
+.migas{
+    text-align: center;
+}
+
+.tablaRoles{
+    text-align: center;
+}
+
+button{
+    padding: 2% 10% 2% 10%;
+}
+button:hover {
+    background-color: rgb(253, 84, 205);
+}
+
+

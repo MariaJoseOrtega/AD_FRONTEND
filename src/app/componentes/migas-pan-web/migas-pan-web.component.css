@@ -1,0 +1,23 @@
+ul { list-style: none; } /* remove bullet points */
+ul li { display: inline; } /* show list items horizontally */
+/* Put an angle bracket (>) between list items */
+ul li+li:before {
+    content: ">";
+    padding: 10px;  
+}
+ul li a { text-decoration: none; } /* remove underlines from links */
+ul li a:hover { text-decoration: underline; } /* show underline on mouseover */
+
+ul {
+    background-color: rgb(50, 216, 242);
+    padding: 2rem 0rem 2rem 0rem;
+    margin-bottom: 5%;
+}
+li{
+    border-bottom:  1px solid white;
+    border-top:  1px solid white;
+    padding: 1rem 1rem 1rem 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif, Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    
+}

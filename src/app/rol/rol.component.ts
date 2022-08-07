@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { migasInterface } from '../interfaces/migas.interface';
 import { Rol } from './rol';
 import { RolService } from './rol.service';
 
@@ -9,7 +10,23 @@ import { RolService } from './rol.service';
 })
 export class RolComponent implements OnInit {
 
+  rutas:migasInterface[] = [
+    {
+      ruta:"Roles",
+      descripcion:"Inicio Roles"
+    },
+    {
+      ruta:"consultar",
+      descripcion:"Consultar Roles"
+    },
+    {
+      ruta:"rol",
+      descripcion:"Gestionar Rol"
+    }
+  ];
+
   constructor(
+    private readonly _router:Router,
     private rolService: RolService,
     private activatedRoute: ActivatedRoute
   ) { }
@@ -22,8 +39,8 @@ export class RolComponent implements OnInit {
     admin:true,
     enable:true,
     archived:true,
-    updated:new Date(),
-    created:new Date()
+    updated:"",
+    created:""
 
   };
 
@@ -49,28 +66,28 @@ export class RolComponent implements OnInit {
           admin:true,
           enable:true,
           archived:true,
-          updated:new Date(),
-          created:new Date()
+          updated:"",
+          created:""
         };
+        this.cancelar();
       }
     )
+  }
+  cancelar(){
+    this._router.navigate(["consultar"]);
   }
 
   findById(id: number):void {
     this.rolService.findById(id).subscribe(
       (response) => {
-        this.currentEntity = response;
+        this.currentEntity.rolId = response.rolId;
+        this.currentEntity.name = response.name;
+        this.currentEntity.admin = response.admin;
+        this.currentEntity.enable = response.enable;
+        this.currentEntity.archived = response.archived;
+        this.currentEntity.updated = new Date(response.updated).toISOString().split('T')[0];
+        this.currentEntity.created = new Date(response.created).toISOString().split('T')[0];
       }
     )
   }
-
-  deleteById():void{
-    this.rolService.deleteById(this.currentEntity.rolId).subscribe(
-      () => {
-        console.log("Registro Borrado exitosamente");
-        //redireccionar ....
-      }
-    )
-  }
-
 }

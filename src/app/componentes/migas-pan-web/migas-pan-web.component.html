@@ -1,0 +1,7 @@
+<nav class="breadcrumb" aria-label="Breadcrumb" >
+    <ul>
+        <li *ngFor="let i of items">
+            <a [href]="i.ruta">{{i.descripcion}}</a>
+        </li>
+    </ul>
+</nav>
