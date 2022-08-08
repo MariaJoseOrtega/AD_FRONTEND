@@ -20,13 +20,13 @@ export class ComentService {
   private url: string = "http://localhost:8080/api/coment" //backend
 
   public findById(id: number): Observable <Coment> {
-    return this.http.get<Coment>(this.url +"/findById"+id, this.httpOptions);
+    return this.http.get<Coment>(this.url +"/findById/"+id, this.httpOptions);
   }
 
   public findAll(): Observable<Coment[]>{
     return this.http.get<Coment[]>(this.url+"/findAll", this.httpOptions);
   }
   public findByName(term: string): Observable<Coment[]>{
-    return this.http.get<Coment[]>(this.url+"/findByName"+term, this.httpOptions);
+    return this.http.get<Coment[]>(this.url+"/findByName/"+term, this.httpOptions);
   }
 }
