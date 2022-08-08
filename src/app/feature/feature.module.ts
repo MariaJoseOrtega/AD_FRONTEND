@@ -24,6 +24,12 @@ import { ConsultarRolesComponent } from './rol/consultar-roles/consultar-roles.c
 import { BuscarRolComponent } from './rol/buscar-rol/buscar-rol.component';
 import { MenuComponent } from './rol/menu/menu.component';
 
+//Registro_Permiso
+import { RegisterFormComponent } from './register/form/register.form.component';
+import { RegisterListComponent } from './register/list/register-list.component';
+import { RegisterToolbarComponent } from './register/toolbar/register-toolbar.component';
+import { ComentSearchComponent } from './coment/coment-search/coment-search.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +46,10 @@ import { MenuComponent } from './rol/menu/menu.component';
     MigasPanWebComponent,
     ConsultarRolesComponent,
     BuscarRolComponent,
+    RegisterFormComponent,
+    RegisterListComponent,
+    RegisterToolbarComponent,
+    ComentSearchComponent,
     MenuComponent
   ],
   imports: [
