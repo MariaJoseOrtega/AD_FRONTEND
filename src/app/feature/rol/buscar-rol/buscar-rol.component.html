@@ -1,0 +1,40 @@
+<div class="pantalla">
+    <div class="migas">
+            <app-migas-pan-web [items]="rutas"></app-migas-pan-web>
+    </div>
+    <div class="tablaRoles">
+       
+<div class="container">  
+    <div class="search-bar">
+      <input  class="txtBuscar" type="text" class="search" placeholder="Buscar " (keyup)="searchTerm$.next($any($event.target).value)">
+     
+      <select name="select" [(ngModel)]="Buscadaseleccionada">
+        <option *ngFor="let tipo of tiposBusqueda" [value]="tipo.valor">{{tipo.texto}}</option>
+      </select>
+
+    </div>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>ADMIN</th>
+            <th>ENABLE</th>
+            <th>ARCHIVED</th>
+            <th>ACTUALIZADO</th>
+            <th>CREADO</th>
+        </tr>
+        <tr *ngFor="let r of listFiltered" class="list">
+            <td>{{r.rolId}}</td>
+            <td>{{r.name}}</td>
+            <td>{{r.admin}}</td>
+            <td>{{r.enable}}</td>
+            <td>{{r.archived}}</td>
+            <td>{{mutarFecha(r.updated)}}</td>
+            <td>{{mutarFecha(r.created)}}</td>
+        </tr>
+    </table>
+  </div>
+    </div>
+</div>

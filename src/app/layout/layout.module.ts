@@ -5,6 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutRoutingModule } from './layout-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import { LayoutRoutingModule } from './layout-routing.module';
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    RouterModule
   ]
 })
 export class LayoutModule { }

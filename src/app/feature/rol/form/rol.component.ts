@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Rol } from 'src/app/feature/rol/rol';
+import { ActivatedRoute, Router } from '@angular/router';
+import { migasInterface, Rol } from 'src/app/feature/rol/rol';
 import { RolService } from 'src/app/feature/rol/rol.service';
 
 @Component({
@@ -8,8 +8,23 @@ import { RolService } from 'src/app/feature/rol/rol.service';
   templateUrl: './rol.component.html'
 })
 export class RolComponent implements OnInit {
+  rutas:migasInterface[] = [
+    {
+      ruta:"/layout/menu",
+      descripcion:"Inicio Roles"
+    },
+    {
+      ruta:"/layout/consultar",
+      descripcion:"Consultar Roles"
+    },
+    {
+      ruta:"/layout/rol",
+      descripcion:"Gestionar Rol"
+    }
+  ];
 
   constructor(
+    private readonly _router:Router,
     private rolService: RolService,
     private activatedRoute: ActivatedRoute
   ) { }
@@ -22,8 +37,8 @@ export class RolComponent implements OnInit {
     admin:true,
     enable:true,
     archived:true,
-    updated:new Date(),
-    created:new Date()
+    updated:"",
+    created:""
 
   };
 
@@ -49,28 +64,28 @@ export class RolComponent implements OnInit {
           admin:true,
           enable:true,
           archived:true,
-          updated:new Date(),
-          created:new Date()
+          updated:"",
+          created:""
         };
+        this.cancelar();
       }
     )
+  }
+  cancelar(){
+    this._router.navigate(["layout","consultar"]);
   }
 
   findById(id: number):void {
     this.rolService.findById(id).subscribe(
       (response) => {
-        this.currentEntity = response;
+        this.currentEntity.rolId = response.rolId;
+        this.currentEntity.name = response.name;
+        this.currentEntity.admin = response.admin;
+        this.currentEntity.enable = response.enable;
+        this.currentEntity.archived = response.archived;
+        this.currentEntity.updated = new Date(response.updated).toISOString().split('T')[0];
+        this.currentEntity.created = new Date(response.created).toISOString().split('T')[0];
       }
     )
   }
-
-  deleteById():void{
-    this.rolService.deleteById(this.currentEntity.rolId).subscribe(
-      () => {
-        console.log("Registro Borrado exitosamente");
-        //redireccionar ....
-      }
-    )
-  }
-
 }

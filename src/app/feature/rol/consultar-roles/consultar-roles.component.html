@@ -1,0 +1,50 @@
+<div class="pantalla">
+    <div class="migas" style="text-align: center;">
+            <app-migas-pan-web [items]="rutas"></app-migas-pan-web>
+    </div>
+
+    <div class="tablaRoles" style="text-align: center;">
+        <button (click)="irNuevoRol()" class="btn-primary" style="padding: 1rem 3rem 1rem 3rem; border-radius: 0.5rem;">+Nuevo</button>
+        <button (click)="irBuscar()" class="btn-primary" style="padding: 1rem 3rem 1rem 3rem; border-radius: 0.5rem;">Buscar</button>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>ADMIN</th>
+                <th>ENABLE</th>
+                <th>ARCHIVED</th>
+                <th>ACTUALIZADO</th>
+                <th>CREADO</th>
+                <th>OPERACION</th>
+            </tr>
+            <tr *ngFor="let r of Roles ">
+                <td>{{r.rolId}}</td>
+                <td>{{r.name}}</td>
+                <td>{{r.admin}}</td>
+                <td>{{r.enable}}</td>
+                <td>{{r.archived}} </td>
+                <td>{{mutarFecha(r.updated)}}</td>
+                <td>{{mutarFecha(r.created)}}</td>
+                <td>
+                 <label for="my-modal-6" class="btn modal-button btn-primary btn-xs" (click)="irActualizarRol(r.rolId)">Actualizar</label>
+                       
+
+                   
+                            <label for="my-modal-6" class="btn modal-button btn-secondary btn-xs" (click)="seleciconarEliminar(r.rolId)">Eliminar</label>
+                            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                            <div class="modal modal-bottom sm:modal-middle">
+                              <div class="modal-box">
+                                <h3 class="font-bold text-lg">Por favor confirme la eliminación</h3>
+                                <p class="py-4">No se podrán revertir los cambios
+                                </p>
+                                <div class="modal-action">
+                                  <label for="my-modal-6" class="btn btn-info" (click)="deleteById()">Confirmar</label>
+                                  <label for="my-modal-6" class="btn btn-info">Cancelar</label>
+                                </div>
+                              </div>
+                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

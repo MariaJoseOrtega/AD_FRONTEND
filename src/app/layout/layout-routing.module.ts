@@ -4,6 +4,10 @@ import { PermisoFormComponent } from '../feature/permiso/form/permiso-form.compo
 import { PermisoListComponent } from '../feature/permiso/list/permiso-list.component';
 import { RegistroFormComponent } from '../feature/registro/form/registro.form.component';
 import { RegistroListComponent } from '../feature/registro/list/registro-list.component';
+import { BuscarRolComponent } from '../feature/rol/buscar-rol/buscar-rol.component';
+import { ConsultarRolesComponent } from '../feature/rol/consultar-roles/consultar-roles.component';
+import { RolComponent } from '../feature/rol/form/rol.component';
+import { MenuComponent } from '../feature/rol/menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
 
@@ -17,7 +21,13 @@ const routes: Routes = [
       {path: 'registro-form', component:RegistroFormComponent},
       {path: 'registro-form/:id', component:RegistroFormComponent},
       {path: 'registro-list', component:RegistroListComponent}, 
-      {path: 'dashboard', component:DashboardComponent}
+      {path: 'dashboard', component:DashboardComponent},
+      {path: 'rol', component:RolComponent},
+      {path: 'rol/:id', component:RolComponent},
+      {path: 'consultar', component:ConsultarRolesComponent},
+      {path: 'menu', component:MenuComponent},
+      {path: 'buscar', component:BuscarRolComponent}
+      
     ]
   }
 ];

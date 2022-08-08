@@ -18,6 +18,11 @@ export class RolService {
 
   private url: string = "http://localhost:8080/api/rol";
 
+
+  public consultarRoles(){
+    return this.http.get<Rol[]>(this.url+"/all",this.httpOptions);
+  }
+  
   public save(rol: Rol): Observable<Rol>{
     return this.http.post<Rol>(this.url+"/save", rol, this.httpOptions);
   }
@@ -26,8 +31,13 @@ export class RolService {
     return this.http.get<Rol>(this.url+"/"+id, this.httpOptions);
   }
 
-  public deleteById(id: number): Observable<Rol>{
+  public deleteById(id: number | string): Observable<Rol>{
     return this.http.delete<Rol>(this.url+"/deleteById/"+id, this.httpOptions);
   }
+  
+  public actualizarRol(Rol:Rol){
+    return this.http.put(this.url+"/update",Rol, this.httpOptions);
+  }
+  
 
 }

@@ -19,6 +19,10 @@ import { ComentarioAgregarComponent } from './comentario/comentario_agregar/come
 
 //Rol
 import { RolComponent } from './rol/form//rol.component';
+import { MigasPanWebComponent } from './rol/migas-pan-web/migas-pan-web.component';
+import { ConsultarRolesComponent } from './rol/consultar-roles/consultar-roles.component';
+import { BuscarRolComponent } from './rol/buscar-rol/buscar-rol.component';
+import { MenuComponent } from './rol/menu/menu.component';
 
 
 @NgModule({
@@ -32,7 +36,11 @@ import { RolComponent } from './rol/form//rol.component';
     RegistroListComponent,
     RegistroToolbarComponent,
     ComentarioAgregarComponent,
-    RolComponent
+    RolComponent,
+    MigasPanWebComponent,
+    ConsultarRolesComponent,
+    BuscarRolComponent,
+    MenuComponent
   ],
   imports: [
    CommonModule,
