@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Coment } from '../../coment/coment';
+import { ComentService } from '../../coment/coment.service';
 import { Register } from '../register';
 import { RegisterService } from '../register.service';
 
@@ -11,6 +13,7 @@ export class RegisterFormComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,
+    private comentService: ComentService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
@@ -23,7 +26,8 @@ export class RegisterFormComponent implements OnInit {
     fechaHoraHasta: new Date(),
     created: new Date(),
     enabled: true,
-    permisoId: 0
+    permisoId: 0,
+    coments: []
   };
 
   ngOnInit(): void {
@@ -49,7 +53,8 @@ export class RegisterFormComponent implements OnInit {
           fechaHoraHasta: new Date(),
           created: new Date(),
           enabled: true,
-          permisoId: 0
+          permisoId: 0,
+          coments: []
         };
         this.router.navigate(['/layout/register-list']);
       }
@@ -60,6 +65,13 @@ export class RegisterFormComponent implements OnInit {
     this.registerService.findById(id).subscribe(
       (response) => {
         this.currentEntity = response;
+        this.currentEntity.coments.forEach(
+          (comm) =>{
+            this.comentService.findById(comm.id).subscribe(
+              (item) => comm.name = item.name
+            )
+          } 
+        )
       }
     )
   }
@@ -72,5 +84,10 @@ export class RegisterFormComponent implements OnInit {
       }
     )
   }
-
+  removeComent(id: number){
+    this.currentEntity.coments = 
+    this.currentEntity.coments.filter(
+      (item) => item.id !== id
+    )
+  }
 }

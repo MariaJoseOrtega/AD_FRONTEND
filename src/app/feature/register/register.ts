@@ -1,4 +1,5 @@
-import { Timestamp } from "rxjs";
+//import { Timestamp } from "rxjs";
+import { Coment } from "../coment/coment";
 
 export interface Register {
     registerId: number,
@@ -7,5 +8,8 @@ export interface Register {
     fechaHoraHasta: Date,
     created: Date,
     enabled: boolean,
-    permisoId: number
+    permisoId: number,
+    coments: Coment[]
+
+
 }

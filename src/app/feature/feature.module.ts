@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { RegisterListComponent } from './register/list/register-list.component';
 import { RegisterToolbarComponent } from './register/toolbar/register-toolbar.component';
 import { PermisoComboboxComponent } from './permiso/permiso-combobox.component';
+import { ComentSearchComponent } from './coment/coment-search/coment-search.component';
 
 
 
@@ -16,6 +17,7 @@ import { PermisoComboboxComponent } from './permiso/permiso-combobox.component';
     RegisterListComponent,
     RegisterToolbarComponent,
     PermisoComboboxComponent,
+    ComentSearchComponent,
   ],
   imports: [
     CommonModule,
