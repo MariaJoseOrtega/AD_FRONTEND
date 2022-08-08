@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Permiso } from './permiso';
-import { PermisoService } from './permiso.service';
+import { Permiso } from '../permiso';
+import { PermisoService } from '../permiso.service';
 
 @Component({
   selector: 'app-permiso-combobox',

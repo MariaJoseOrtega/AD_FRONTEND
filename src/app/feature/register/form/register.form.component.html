@@ -1,11 +1,10 @@
 <app-register-toolbar [entityName]="currentEntity.detalle"></app-register-toolbar>
-<div class="grid justify-center mt-4">
-  <div class="card shadow-2xl shadow-black">
-    <div class="card-body">
+<div class="grid justify-center my-3">
+  <div class="card card-compact w-96 shadow-2xl shadow-black">
+    <div class="card-body bg-base-200">
       <div class="card-title">
         Registo de Permisos <span class="text-primary">Registro</span>
       </div>
-      <div class="divider"> </div>
       <div class="grid">
         <label>Permiso</label>
           <app-permiso-combobox (permisoIdEmitter)="currentEntity.permisoId=$event" [permisoId]="currentEntity.permisoId"></app-permiso-combobox>
@@ -35,7 +34,7 @@
                 <td>{{coment.name}}</td>
                 <td>
                   <a (click)="removeComent(coment.id)" >
-                    <svg class="w-4 h-4" fill="red"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                    <svg class="w-4 h-4" fill="#fb7185"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                     x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
                    xml:space="preserve">
                    <g>
@@ -67,12 +66,12 @@
 
   <div class="divider"> </div>
 
-  <div class="card card-compact shadow-2xl shadow-black bg-red-500 ">
+  <div class="card card-compact shadow-2xl shadow-black bg-black-800">
     <div class="card-body">
       <div class="card-title">Precaución</div>
       <p>Si elimina el registro no prodrá recuperarlo</p>
       <div class="card-actions">
-        <label for="my-modal-6" class="btn modal-button btn-secondary btn-xs">Eliminar</label>
+        <label for="my-modal-6" class="btn modal-button btn-error btn-xs">Eliminar</label>
 
         <input type="checkbox" id="my-modal-6" class="modal-toggle" />
         <div class="modal modal-bottom sm:modal-middle">

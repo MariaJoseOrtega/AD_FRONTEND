@@ -29,6 +29,7 @@ import { RegisterFormComponent } from './register/form/register.form.component';
 import { RegisterListComponent } from './register/list/register-list.component';
 import { RegisterToolbarComponent } from './register/toolbar/register-toolbar.component';
 import { ComentSearchComponent } from './coment/coment-search/coment-search.component';
+import { PermisoComboboxComponent } from './permiso/permiso-combobox/permiso-combobox.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { ComentSearchComponent } from './coment/coment-search/coment-search.comp
     RegisterListComponent,
     RegisterToolbarComponent,
     ComentSearchComponent,
+    PermisoComboboxComponent,
     MenuComponent
   ],
   imports: [
