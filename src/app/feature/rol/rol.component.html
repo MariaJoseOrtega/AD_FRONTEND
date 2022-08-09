@@ -1,8 +1,3 @@
-<div style="padding: 2%;">
-  <div style="text-align: center;">
-          <app-migas-pan-web [items]="rutas"></app-migas-pan-web>
-  </div>
-
 <div class="grid justify-center mt-4">
   <div class="card shadow-2xl shadow-pink-700">
     <div class="card-body">
@@ -45,12 +40,35 @@
       </div>
       <div class="card-actions">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
-        <button class="btn btn-sm" (click)="cancelar()">Cancelar</button>
+        <button class="btn btn-sm">Cancelar</button>
       </div>
     </div>
   </div>
+
   <div class="divider"> </div>
- 
-</div>
-</div>
+
+  <div class="card card-compact shadow-2xl shadow-black bg-pink-300 ">
+    <div class="card-body">
+      <div class="card-title">Precaución</div>
+      <p>Si elimina el registro no prodrá recuperarlo</p>
+      <div class="card-actions">
+        <label for="my-modal-6" class="btn modal-button btn-secondary btn-xs">Eliminar</label>
+
+
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">Por favor confirme la eliminación</h3>
+            <p class="py-4">No se podrán revertir los cambios
+            </p>
+            <div class="modal-action">
+              <label for="my-modal-6" class="btn btn-info" (click)="deleteById()">Confirmar</label>
+              <label for="my-modal-6" class="btn btn-info">Cancelar</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
