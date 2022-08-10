@@ -5,11 +5,21 @@ export interface Rol {
   enable:boolean,
   archived:boolean,
   updated:string,
-  created: string
+  created: string,
+  fkpersonId:string
 }
 
 
 export interface migasInterface {
   ruta:string,
   descripcion:string
+}
+
+export interface Persona {
+   personId:string,
+     name:String,
+     dni:String,
+     created:string,
+     updated:string,
+     enabled:boolean
 }

@@ -36,11 +36,16 @@ export class RolComponent implements OnInit {
     enable:true,
     archived:true,
     updated:"",
-    created:""
-
+    created:"",
+    fkpersonId:""
   };
+  
+  Personas:any=[];
 
   ngOnInit(): void {
+    this.rolService.consultarPersonas().subscribe(res=>{
+      this.Personas = res;
+    })
     this.activatedRoute.paramMap.subscribe(
       (params) => {
         if (params.get("id")){
@@ -49,6 +54,13 @@ export class RolComponent implements OnInit {
         }
       }
     )
+  }
+
+  public onSelect(id:string){
+    console.log(id);
+    
+    this.currentEntity.fkpersonId = id;
+    //this.permisoIdEmitter.emit(parseInt(id));
   }
 
   save():void {
@@ -64,7 +76,8 @@ export class RolComponent implements OnInit {
           enable:true,
           archived:true,
           updated:"",
-          created:""
+          created:"",
+          fkpersonId:""
         };
         this.cancelar();
       }

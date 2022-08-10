@@ -56,6 +56,24 @@
         <input class="input input-primary" type="date" name="" id=""
         [(ngModel)]="currentEntity.created">
       </div>
+
+      <h5>Persona</h5>
+      <select #selectPermiso (change)="onSelect(selectPermiso.value)" class="select select-primary" name="" id="" >
+        <option value=0 selected disabled>Seleccionar</option>
+        <option *ngFor="let person of Personas"
+        [value]="person.personId"
+        [selected]="person.personId === 1"
+        >
+            {{person.name}}
+        </option>
+    </select>
+
+<br>
+    <label class="flex flex-row p-2 bg-neutral rounded" for="">ROLES 
+      <p style="margin-left: 55%;">ELIMINAR</p> </label><br>
+        <input class="input input-primary" type="text" name="" id="" placeholder="Agregar"
+         >
+
       <div class="card-actions">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
         <button class="btn btn-sm" (click)="cancelar()">Cancelar</button>
