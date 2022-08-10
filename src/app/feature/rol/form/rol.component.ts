@@ -11,12 +11,8 @@ export class RolComponent implements OnInit {
   rutas:migasInterface[] = [
     {
       ruta:"/layout/buscar",
-      descripcion:"Rol"
+      descripcion:"Roles"
     },
-    {
-      ruta:"/layout/rol",
-      descripcion:"Gestionar Rol"
-    }
   ];
 
   idEliminar:string="";
