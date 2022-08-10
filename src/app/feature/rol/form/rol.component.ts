@@ -10,18 +10,16 @@ import { RolService } from 'src/app/feature/rol/rol.service';
 export class RolComponent implements OnInit {
   rutas:migasInterface[] = [
     {
-      ruta:"/layout/menu",
-      descripcion:"Inicio Roles"
-    },
-    {
-      ruta:"/layout/consultar",
-      descripcion:"Consultar Roles"
+      ruta:"/layout/buscar",
+      descripcion:"Rol"
     },
     {
       ruta:"/layout/rol",
       descripcion:"Gestionar Rol"
     }
   ];
+
+  idEliminar:string="";
 
   constructor(
     private readonly _router:Router,
@@ -47,6 +45,7 @@ export class RolComponent implements OnInit {
       (params) => {
         if (params.get("id")){
           this.findById(parseInt(params.get("id")!));
+          this.idEliminar = params.get("id")!;
         }
       }
     )
@@ -71,8 +70,8 @@ export class RolComponent implements OnInit {
       }
     )
   }
-  cancelar(){
-    this._router.navigate(["layout","consultar"]);
+  cancelar(){    
+    this._router.navigate(["layout","buscar"]);
   }
 
   findById(id: number):void {
@@ -85,6 +84,16 @@ export class RolComponent implements OnInit {
         this.currentEntity.archived = response.archived;
         this.currentEntity.updated = new Date(response.updated).toISOString().split('T')[0];
         this.currentEntity.created = new Date(response.created).toISOString().split('T')[0];
+      }
+    )
+  }
+
+  deleteById():void{    
+    this.rolService.deleteById(this.idEliminar).subscribe(
+      () => {
+        console.log("Registro Borrado exitosamente");
+        this.cancelar();
+        //redireccionar ....
       }
     )
   }

@@ -7,7 +7,6 @@ import { RolService } from '../rol.service';
 @Component({
   selector: 'app-buscar-rol',
   templateUrl: './buscar-rol.component.html',
-  styleUrls: ['./buscar-rol.component.css']
 })
 export class BuscarRolComponent implements OnInit {
   searchTerm$ = new Subject<string>();
@@ -28,16 +27,8 @@ Buscadaseleccionada:string="2";
 
   rutas:migasInterface[] = [
     {
-      ruta:"/layout/menu",
-      descripcion:"Inicio Roles"
-    },
-    {
-      ruta:"/layout/consultar",
-      descripcion:"Consultar Roles"
-    },
-    {
       ruta:"/layout/buscar",
-      descripcion:"Buscar Rol"
+      descripcion:"Rol"
     }
   ];
   Roles:any= [];
@@ -55,7 +46,11 @@ Buscadaseleccionada:string="2";
     })
   }
   mutarFecha(fecha:string){
-    return fecha.split("T")[0];
+    try{
+      return fecha.split("T")[0];
+    }catch(err){
+      return fecha;
+    }
   }
 
   filterList(): void {
@@ -78,4 +73,15 @@ Buscadaseleccionada:string="2";
       }
     });
   }
+
+  
+  irActualizarRol(id:string){
+    console.log(id);
+    
+    this._router.navigate(['/layout/rol/'+id]);
+  }
+  irNuevoRol(){
+    this._router.navigate(['layout','rol']);
+  }
+
 }
