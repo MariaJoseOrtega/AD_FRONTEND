@@ -9,9 +9,9 @@ import { ConsultarRolesComponent } from '../feature/rol/consultar-roles/consulta
 import { RolComponent } from '../feature/rol/form/rol.component';
 import { RegisterFormComponent } from '../feature/register/form/register.form.component';
 import { RegisterListComponent } from '../feature/register/list/register-list.component';
-import { MenuComponent } from '../feature/rol/menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
+import { ListComponent } from '../feature/persona/list/lista.component';
 
 const routes: Routes = [
   {path: '', component:MainComponent ,
@@ -27,7 +27,7 @@ const routes: Routes = [
       {path: 'rol', component:RolComponent},
       {path: 'rol/:id', component:RolComponent},
       {path: 'consultar', component:ConsultarRolesComponent},
-      {path: 'menu', component:MenuComponent},
+      {path: 'persona', component:ListComponent},
       {path: 'buscar', component:BuscarRolComponent},
       {path: 'register-form', component:RegisterFormComponent},
       {path: 'register-form/:id', component:RegisterFormComponent},

@@ -23,7 +23,6 @@ import { RolComponent } from './rol/form//rol.component';
 import { MigasPanWebComponent } from './rol/migas-pan-web/migas-pan-web.component';
 import { ConsultarRolesComponent } from './rol/consultar-roles/consultar-roles.component';
 import { BuscarRolComponent } from './rol/buscar-rol/buscar-rol.component';
-import { MenuComponent } from './rol/menu/menu.component';
 
 //Registro_Permiso
 import { RegisterFormComponent } from './register/form/register.form.component';
@@ -31,6 +30,7 @@ import { RegisterListComponent } from './register/list/register-list.component';
 import { RegisterToolbarComponent } from './register/toolbar/register-toolbar.component';
 import { ComentSearchComponent } from './coment/coment-search/coment-search.component';
 import { PermisoComboboxComponent } from './permiso/permiso-combobox/permiso-combobox.component';
+import { ListComponent } from './persona/list/lista.component';
 
 
 @NgModule({
@@ -54,7 +54,7 @@ import { PermisoComboboxComponent } from './permiso/permiso-combobox/permiso-com
     RegisterToolbarComponent,
     ComentSearchComponent,
     PermisoComboboxComponent,
-    MenuComponent
+    ListComponent
   ],
   imports: [
    CommonModule,

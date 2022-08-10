@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { migasInterface, Persona } from '../rol';
-import { RolService } from '../rol.service';
+import { RolService } from '../../rol/rol.service';
+import { migasInterface, Persona } from '../persona';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html',
+  templateUrl: './lista.component.html',
 })
-export class MenuComponent implements OnInit {
+export class ListComponent implements OnInit {
   searchTerm$ = new Subject<string>();
   listDeliciousDishes:any = [];
   listFiltered:any = [];

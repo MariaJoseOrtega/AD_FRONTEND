@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
     this._router.navigate(["layout", "buscar"]);
   }
   irPersonas(){
-    this._router.navigate(["layout", "menu"]);
+    this._router.navigate(["layout", "persona"]);
   }
 
 }
