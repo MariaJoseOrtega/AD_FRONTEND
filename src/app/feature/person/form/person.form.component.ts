@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Authority } from '../../authority/authority';
-import { AuthorityService } from '../../authority/authority.service';
 import { Person } from '../person';
 import { PersonService } from '../person.service';
 
@@ -13,12 +11,12 @@ export class PersonFormComponent implements OnInit {
 
   constructor(
     private personService: PersonService,
-    private authorityService: AuthorityService,
+    // private authorityService: AuthorityService,
     private activatedRoute: ActivatedRoute,
     private router:Router
   ) { }
 
-  currentEntity: Person = 
+  currentEntity: Person =
   {
     personId: 0,
     name: "",
@@ -26,7 +24,7 @@ export class PersonFormComponent implements OnInit {
     created: new Date(),
     enabled: true,
     cityId: 0,
-    authorities: []
+    // authorities: []
   };
 
   ngOnInit(): void {
@@ -44,7 +42,7 @@ export class PersonFormComponent implements OnInit {
     this.personService.save(this.currentEntity)
     .subscribe(
       () => {
-        this.currentEntity = 
+        this.currentEntity =
         {
           personId: 0,
           name: "",
@@ -52,27 +50,27 @@ export class PersonFormComponent implements OnInit {
           created: new Date(),
           enabled: true,
           cityId: 0,
-          authorities: []
+          // authorities: []
         };
         this.router.navigate(['/layout/person-list']);
       }
     )
   }
 
-  findById(id: number):void {
-    this.personService.findById(id).subscribe(
-      (response) => {
-        this.currentEntity = response;
-        this.currentEntity.authorities.forEach(
-          (auth) => {
-            this.authorityService.findById(auth.id).subscribe(
-              (item) => auth.name = item.name
-            )
-          }
-        )
-      }
-    )
-  }
+   findById(id: number):void {
+     this.personService.findById(id).subscribe(
+      //  (response) => {
+      //    this.currentEntity = response;
+      //    this.currentEntity.authorities.forEach(
+      //      (auth) => {
+      //        this.authorityService.findById(auth.id).subscribe(
+      //          (item) => auth.name = item.name
+      //        )
+      //      }
+      //    )
+      //  }
+     )
+   }
 
   deleteById():void{
     this.personService.deleteById(this.currentEntity.personId).subscribe(
@@ -83,12 +81,12 @@ export class PersonFormComponent implements OnInit {
     )
   }
 
-  removeAuthority(id: number):void {
+  // removeAuthority(id: number):void {
 
-    this.currentEntity.authorities =
-    this.currentEntity.authorities.filter(
-      (item) => item.id != id 
-    );
-  }
+  //   this.currentEntity.authorities =
+  //   this.currentEntity.authorities.filter(
+  //     (item) => item.id != id
+  //   );
+  // }
 
 }

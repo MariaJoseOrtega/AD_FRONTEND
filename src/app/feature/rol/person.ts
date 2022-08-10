@@ -6,4 +6,6 @@ export interface Person {
     dni: string,
     created: Date,
     enabled: boolean,
+    cityId: number,
+    authorities: Authority[]
 }

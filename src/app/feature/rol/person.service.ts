@@ -23,7 +23,7 @@ export class PersonService {
   }
 
   public findById(id: number): Observable<Person>{
-    return this.http.get<Person>(this.url+"/findById"+id, this.httpOptions);
+    return this.http.get<Person>(this.url+"/"+id, this.httpOptions);
   }
 
   public deleteById(id: number): Observable<Person>{
@@ -36,6 +36,6 @@ export class PersonService {
 
   public findByName(term: string): Observable<Person[]>{
     return this.http.get<Person[]>(this.url+"/findByName/"+term, this.httpOptions)
-  }
+  }  
 
 }

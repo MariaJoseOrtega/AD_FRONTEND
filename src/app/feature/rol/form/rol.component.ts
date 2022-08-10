@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Rol } from './rol';
-import { RolService } from './rol.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Rol } from 'src/app/feature/rol/rol';
+import { RolService } from 'src/app/feature/rol/rol';
 
 @Component({
   selector: 'app-rol',
-  templateUrl: './rol.component.html'
+  templateUrl: './rol-form.component.html'
 })
-export class RolComponent implements OnInit {
+export class RolformComponent implements OnInit {
 
   constructor(
     private rolService: RolService,
     private activatedRoute: ActivatedRoute
-  ) { }
+    private router:Router
+    ) { }
 
   currentEntity: Rol=
   {
@@ -64,13 +65,31 @@ export class RolComponent implements OnInit {
     )
   }
 
+  /*findById(id: number):void {
+    this.rolService.findById(id).subscribe(
+      (response) => {
+        this.currentEntity = response;
+        this.currentEntity.authorities.forEach(
+          (auth) => {
+            this.authorityService.findById(auth.id).subscribe(
+              (item) => auth.name = item.name
+            )
+          }
+        )
+      }
+    )
+  } */
+
   deleteById():void{
     this.rolService.deleteById(this.currentEntity.rolId).subscribe(
       () => {
         console.log("Registro Borrado exitosamente");
         //redireccionar ....
       }
-    )
+      )
   }
 
+      selectPerson(id: number){
+        this.currentEntity.personId=id;
+        }
 }
