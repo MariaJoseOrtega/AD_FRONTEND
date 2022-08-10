@@ -34,6 +34,9 @@ import { PermisoComboboxComponent } from './permiso/permiso-combobox/permiso-com
 //Persona
 import { PersonToolbarComponent } from './person/toolbar/person-toolbar.component';
 import { PersonListComponent } from './person/list/person-list.component';
+import { ListComponent } from './rol/list/list.component';
+import { RolComboboxComponent } from './rol/rol-combobox/rol-combobox.component';
+import { ToolbarComponent } from './rol/toolbar/toolbar.component';
 
 
 
@@ -59,7 +62,10 @@ import { PersonListComponent } from './person/list/person-list.component';
     ComentSearchComponent,
     PermisoComboboxComponent,
     PersonToolbarComponent,
-    PersonListComponent
+    PersonListComponent,
+    ListComponent,
+    RolComboboxComponent,
+    ToolbarComponent,
   ],
   imports: [
    CommonModule,

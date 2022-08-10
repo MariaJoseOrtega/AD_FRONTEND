@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { migasInterface, Rol } from 'src/app/feature/rol/rol';
 import { RolService } from 'src/app/feature/rol/rol.service';
+import { PersonService } from '../../person/person.service';
 
 @Component({
   selector: 'app-rol',
@@ -20,6 +21,7 @@ export class RolComponent implements OnInit {
   constructor(
     private readonly _router:Router,
     private rolService: RolService,
+    private personService:PersonService,
     private activatedRoute: ActivatedRoute
   ) { }
 
@@ -39,7 +41,7 @@ export class RolComponent implements OnInit {
   Personas:any=[];
 
   ngOnInit(): void {
-    this.rolService.consultarPersonas().subscribe(res=>{
+    this.personService.findAll().subscribe(res=>{
       this.Personas = res;
     })
     this.activatedRoute.paramMap.subscribe(

@@ -27,8 +27,8 @@ Buscadaseleccionada:string="2";
 
   rutas:migasInterface[] = [
     {
-      ruta:"/layout/buscar",
-      descripcion:"Rol"
+      ruta:"/layout/persona",
+      descripcion:"Persona"
     }
   ];
   Roles:any= [];

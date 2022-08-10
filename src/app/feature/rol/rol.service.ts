@@ -17,7 +17,6 @@ export class RolService {
   }
 
   private url: string = "http://localhost:8080/api/rol";
-  private url2: string = "http://localhost:8080/api/person";
 
 
   public consultarRoles(){
@@ -40,8 +39,4 @@ export class RolService {
     return this.http.put(this.url+"/update",Rol, this.httpOptions);
   }
   
-  public consultarPersonas(){
-    return this.http.get<Persona[]>(this.url2+"/findAll",this.httpOptions);
-  }
-
 }
