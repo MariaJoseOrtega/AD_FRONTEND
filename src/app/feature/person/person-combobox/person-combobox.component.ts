@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Person } from '../person';
+import { Persona } from '../person';
 import { PersonService } from '../person.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class PersonComboboxComponent implements OnInit {
     private personService: PersonService
   ) { }
 
-  persons: Person[]=[];
+  persons: Persona[]=[];
 
   @Output() personEmitter = new EventEmitter<number>();
   @Input() personId: number = 0;

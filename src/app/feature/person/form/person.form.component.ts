@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Person } from '../person';
+import { Persona } from '../person';
 import { PersonService } from '../person.service';
 
 @Component({
@@ -16,12 +16,12 @@ export class PersonFormComponent implements OnInit {
     private router:Router
   ) { }
 
-  currentEntity: Person = 
+  currentEntity: Persona = 
   {
-    personId: 0,
+    personId: "",
     name: "",
     dni: "",
-    created: new Date(),
+    created: "",
     enabled: true,
     cityId: 0,
     // authorities: []
@@ -44,10 +44,10 @@ export class PersonFormComponent implements OnInit {
       () => {
         this.currentEntity = 
         {
-          personId: 0,
+          personId: "",
           name: "",
           dni: "",
-          created: new Date(),
+          created:"",
           enabled: true,
           cityId: 0,
           // authorities: []
@@ -73,7 +73,8 @@ export class PersonFormComponent implements OnInit {
    }
 
   deleteById():void{
-    this.personService.deleteById(this.currentEntity.personId).subscribe(
+    if(this.currentEntity.personId !== undefined)
+    this.personService.deleteById(+this.currentEntity.personId).subscribe(
       () => {
         console.log("Borrado");
         //redireccionar ....

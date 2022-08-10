@@ -30,7 +30,11 @@ import { RegisterListComponent } from './register/list/register-list.component';
 import { RegisterToolbarComponent } from './register/toolbar/register-toolbar.component';
 import { ComentSearchComponent } from './coment/coment-search/coment-search.component';
 import { PermisoComboboxComponent } from './permiso/permiso-combobox/permiso-combobox.component';
-import { ListComponent } from './persona/list/lista.component';
+
+//Persona
+import { PersonToolbarComponent } from './person/toolbar/person-toolbar.component';
+import { PersonListComponent } from './person/list/person-list.component';
+
 
 
 @NgModule({
@@ -54,7 +58,8 @@ import { ListComponent } from './persona/list/lista.component';
     RegisterToolbarComponent,
     ComentSearchComponent,
     PermisoComboboxComponent,
-    ListComponent
+    PersonToolbarComponent,
+    PersonListComponent
   ],
   imports: [
    CommonModule,

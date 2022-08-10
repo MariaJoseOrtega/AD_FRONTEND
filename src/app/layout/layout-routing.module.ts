@@ -11,7 +11,7 @@ import { RegisterFormComponent } from '../feature/register/form/register.form.co
 import { RegisterListComponent } from '../feature/register/list/register-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
-import { ListComponent } from '../feature/persona/list/lista.component';
+import { PersonListComponent } from '../feature/person/list/person-list.component';
 
 const routes: Routes = [
   {path: '', component:MainComponent ,
@@ -27,11 +27,11 @@ const routes: Routes = [
       {path: 'rol', component:RolComponent},
       {path: 'rol/:id', component:RolComponent},
       {path: 'consultar', component:ConsultarRolesComponent},
-      {path: 'persona', component:ListComponent},
       {path: 'buscar', component:BuscarRolComponent},
       {path: 'register-form', component:RegisterFormComponent},
       {path: 'register-form/:id', component:RegisterFormComponent},
-      {path: 'register-list', component:RegisterListComponent}
+      {path: 'register-list', component:RegisterListComponent},
+      {path: 'persona', component:PersonListComponent}
 
       
     ]

@@ -1,24 +1,20 @@
-<div class="flex flex-row p-2 bg-white">
-    <button routerLink="../person-form" class="btn btn-outline btn-sm rounded">
-        <svg class="h-3 w-3 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
-            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-            <g>
-                <path
-                    d="M480,224H288V32c0-17.673-14.327-32-32-32s-32,14.327-32,32v192H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h192v192   c0,17.673,14.327,32,32,32s32-14.327,32-32V288h192c17.673,0,32-14.327,32-32S497.673,224,480,224z" />
-            </g>
-        </svg>
-        <span class="hidden md:inline">
-            Nuevo
-        </span>
+<div class="flex flex-row p-2 bg-neutral rounded">
+    <button (click)="irNuevoRol()" class="btn  h-9 w-15 btn-sm rounded bg-neutral-content text-black ">
+        <svg class="w-3 h-3 mx-1" fill="black" xmlns="http://www.w3.org/2000/svg" id="Isolation_Mode" data-name="Isolation Mode" viewBox="0 0 24 24" ><polygon points="24 10.5 13.5 10.5 13.5 0 10.5 0 10.5 10.5 0 10.5 0 13.5 10.5 13.5 10.5 24 13.5 24 13.5 13.5 24 13.5 24 10.5"/></svg>
+        <span class="hidden md:inline">Nuevo</span>
         
     </button>
-    <div class="text-sm breadcrumbs ml-2 flex-auto">
-        <ul>
-            <li><a routerLink="/layout/person-list" >Personas</a></li>
-            <li><a>{{entityName}}</a></li>
-        </ul>
-    </div>
-    <input #inputSearch class="input input-primary input-sm " type="text" name="" placeholder="Buscar" id=""
-    (input)="onInput(inputSearch.value)"
-    >
-</div>
+    <div class="text-sm breadcrumbs text-white ml-2 flex-auto">
+        <nav class="breadcrumb" aria-label="Breadcrumb" >
+            <ul>
+                <li *ngFor="let i of items">
+                    <a [href]="i.ruta">{{i.descripcion}}</a>
+                </li>
+            </ul>
+        </nav>
+      </div>
+      <input #inputSearch class="input input-primary input-sm h-10 w-55" type="text" name="" placeholder="Buscar"
+      (keyup)="searchTerm$.next($any($event.target).value)"
+      >
+  </div>
+  

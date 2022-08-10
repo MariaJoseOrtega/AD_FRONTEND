@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../person';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { migasInterface, Persona } from '../person';
 import { PersonService } from '../person.service';
 
 @Component({
@@ -7,33 +9,72 @@ import { PersonService } from '../person.service';
   templateUrl: './person-list.component.html'
 })
 export class PersonListComponent implements OnInit {
+  searchTerm$ = new Subject<string>();
+  listDeliciousDishes:any = [];
+  listFiltered:any = [];
+  txtBuscar:string="";
+  tiposBusqueda:any = [
+    {
+      valor:1,
+      texto:"Rol id"
+    },
+    {
+      valor:2,
+      texto:"Nombre"
+    },
+]
+Buscadaseleccionada:string="2";
 
+  rutas:migasInterface[] = [
+    {
+      ruta:"/layout/buscar",
+      descripcion:"Rol"
+    }
+  ];
+  Roles:any= [];
+  antiguo:any = [];
   constructor(
-    private personService: PersonService
+    private readonly personaService: PersonService,
+    private readonly _router:Router
   ) { }
 
-  personList: Person[] = [];
-
   ngOnInit(): void {
-    this.findAll();
+    this.personaService.findAll().subscribe(personas=>{
+      this.listDeliciousDishes = personas;
+      this.listFiltered = this.listDeliciousDishes;
+      this.filterList();
+    })
   }
-
-  public findAll():void {
-    this.personService.findAll().subscribe(
-      (response) => this.personList = response
-    )
-  }
-
-  public findByName(term: string): void{
-    if (term.length>=2){
-      this.personService.findByName(term).subscribe(
-        (response) => this.personList = response
-      )
+  mutarFecha(fecha:string){
+    try{
+      return fecha.split("T")[0];
+    }catch(err){
+      return fecha;
     }
-    if (term.length===0){
-      this.findAll();
-    }
-
   }
+
+  filterList(): void {
+    this.searchTerm$.subscribe(term => {
+
+      switch(this.Buscadaseleccionada)
+      {
+        
+        case "2":
+          {
+            this.listFiltered = this.listDeliciousDishes
+            .filter((item: Persona) => item.name!.toLowerCase().indexOf(term.toLowerCase()) >= 0);
+            break;
+          }
+      }
+    });
+  }
+
+  
+  irActualizarRol(id:string){
+    console.log(id);
+    
+    this._router.navigate(['/layout/rol/'+id]);
+  }
+
 
 }
