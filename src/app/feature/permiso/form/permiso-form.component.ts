@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Permiso } from 'src/app/feature/permiso/permiso';
 import { PermisoService } from 'src/app/feature/permiso/permiso.service';
 import { AuthorityService } from '../../authority/authority.service';
+import { RegisterService } from '../../register/register.service';
 
 @Component({
   selector: 'app-permiso',
@@ -14,6 +15,7 @@ export class PermisoFormComponent implements OnInit {
     private permisoService: PermisoService,
     private activatedRoute: ActivatedRoute,
     private authorityService: AuthorityService,
+    private registerService: RegisterService,
     private router:Router
   ) { }
 
@@ -27,7 +29,7 @@ export class PermisoFormComponent implements OnInit {
     updated: new Date(),
     enabled: false,
     personId: 0,
-    authorities: []
+    registers: []
   };
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class PermisoFormComponent implements OnInit {
           updated: new Date(),
           enabled: true,
           personId: 0.,
-          authorities: []
+          registers: []
         };
       }
     )
@@ -65,10 +67,10 @@ export class PermisoFormComponent implements OnInit {
     this.permisoService.findById(id).subscribe(
       (response) => {
         this.currentEntity = response;
-        this.currentEntity.authorities.forEach(
+        this.currentEntity.registers.forEach(
           (auth) => {
-            this.authorityService.findById(auth.id).subscribe(
-              (item) => auth.name = item.name
+            this.registerService.findById(auth.registerId).subscribe(
+              (item) => auth.detalle = item.detalle
             )
           }
         )
@@ -89,11 +91,11 @@ export class PermisoFormComponent implements OnInit {
   this.currentEntity.personId=id;
   }
 
-  removeAuthority(id: number):void {
+  removeRegister(id: number):void {
 
-    this.currentEntity.authorities =
-    this.currentEntity.authorities.filter(
-      (item) => item.id != id
+    this.currentEntity.registers =
+    this.currentEntity.registers.filter(
+      (item) => item.registerId != id
     );
   }
 

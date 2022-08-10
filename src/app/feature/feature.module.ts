@@ -10,6 +10,7 @@ import { PermisoListComponent } from './permiso/list/permiso-list.component';
 import { PermisoToolbarComponent } from './permiso/toolbar/permiso-toolbar.component';
 import { PersonComboboxComponent } from './person/person-combobox/person-combobox.component';
 import { AuthoritySearchComponent } from './authority/authority-search/authority-search.component';
+import { RegisterSearchComponent } from './register/register-search/register-search.component';
 
 //Registro_actividad
 import { RegistroFormComponent } from './registro/form/registro.form.component';
@@ -39,6 +40,7 @@ import { PermisoComboboxComponent } from './permiso/permiso-combobox/permiso-com
     PermisoToolbarComponent,
     PersonComboboxComponent,
     AuthoritySearchComponent,
+    RegisterSearchComponent,
     RegistroFormComponent,
     RegistroListComponent,
     RegistroToolbarComponent,
