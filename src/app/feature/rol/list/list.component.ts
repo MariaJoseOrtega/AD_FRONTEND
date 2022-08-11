@@ -39,9 +39,6 @@ export class ListComponent implements OnInit {
     this.listaRoles = lista;
   }
 
-
-
-  
   irActualizarRol(id:string){
     console.log(id);
     

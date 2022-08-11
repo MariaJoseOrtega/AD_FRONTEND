@@ -17,10 +17,6 @@ export class RolComponent implements OnInit {
       ruta:"/layout/rol-list",
       descripcion:"Rol"
     },
-    {
-      ruta:"/layout/rol",
-      descripcion:"Gestión Roles"
-    },
   ];
 
   idEliminar:string="";
@@ -83,11 +79,9 @@ export class RolComponent implements OnInit {
 
   save():void {
     console.table(this.currentEntity);
-
     if(+this.currentEntity.rolId !== 0)
     this.rolService.save(this.currentEntity)
-    .subscribe(
-      (res) => {
+    .subscribe((res) => {
         this.currentEntity =
         {
           rolId:0,
@@ -115,7 +109,7 @@ export class RolComponent implements OnInit {
             authorityid:c.id
           }
           this.rolService.saveoRolxAuthority(rolAut).subscribe(guardado=>{
-            this.currentEntity =
+             this.currentEntity =
             {
               rolId:0,
               name:"",
