@@ -1,21 +1,5 @@
-<div class="flex flex-row p-2 bg-neutral rounded">
-  <button  class="btn  h-9 w-15 btn-sm rounded bg-neutral-content text-black ">
-      <svg class="w-3 h-3 mx-1" fill="black" xmlns="http://www.w3.org/2000/svg" id="Isolation_Mode" data-name="Isolation Mode" viewBox="0 0 24 24" ><polygon points="24 10.5 13.5 10.5 13.5 0 10.5 0 10.5 10.5 0 10.5 0 13.5 10.5 13.5 10.5 24 13.5 24 13.5 13.5 24 13.5 24 10.5"/></svg>
-      <span class="hidden md:inline">Nuevo</span>
-      
-  </button>
-  <div class="text-sm breadcrumbs text-white ml-2 flex-auto">
-    <ul style="list-style: none; display: inline;">
-      <li>
-        <app-migas-pan-web [items]="rutas"></app-migas-pan-web> > {{currentEntity.name}}
-      </li>
-      </ul>
-    </div>
-    <input #inputSearch class="input input-primary input-sm h-10 w-55" type="text" name="" placeholder="Buscar"
-    >
-</div>
 
-
+  <app-toolbar [items]="rutas" [texto]="currentEntity.name"></app-toolbar> 
 <div class="grid justify-center my-3">
   <div class="card card-compact w-96 shadow-2xl shadow-black">
     <div class="card-body bg-base-200">
@@ -72,9 +56,24 @@
 <br>
     <label class="flex flex-row p-2 bg-neutral rounded" for="">PERMISOS 
       <p style="margin-left: 55%;">ELIMINAR</p> </label><br>
-        <input class="input input-primary" type="text" name="" id="" placeholder="Agregar"
-         >
+        <input class="input input-primary" type="text" name="" id="" placeholder="Agregar" >
+      <h5>Persona</h5>
 
+      <app-rol-combobox (personEmitter)="selectPerson($event)" [personId]="''+currentEntity.fkpersonId">
+      </app-rol-combobox>
+
+
+<br>
+<div>
+  <div class="flex flex-row p-2 bg-neutral rounded" *ngFor="let aut of autorizacionList"> 
+    <p>{{aut.name}}</p> <p (click)="quitarAuth(aut)">eliminar</p>
+  </div>
+    
+  <app-authority-search (authorityEmitter)="autorizacion($event)"></app-authority-search>
+</div>
+
+
+    <br>
       <div class="card-actions">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
         <button class="btn btn-sm" (click)="cancelar()">Cancelar</button>
@@ -90,7 +89,6 @@
       <div class="card-actions">
         <label for="my-modal-6" class="btn modal-button btn-error btn-xs">Eliminar</label>
 
-        <!-- Put this part before </body> tag -->
         <input type="checkbox" id="my-modal-6" class="modal-toggle" />
         <div class="modal modal-bottom sm:modal-middle">
           <div class="modal-box">

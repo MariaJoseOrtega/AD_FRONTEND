@@ -20,9 +20,6 @@ import { ComentarioAgregarComponent } from './comentario/comentario_agregar/come
 
 //Rol
 import { RolComponent } from './rol/form//rol.component';
-import { MigasPanWebComponent } from './rol/migas-pan-web/migas-pan-web.component';
-import { ConsultarRolesComponent } from './rol/consultar-roles/consultar-roles.component';
-import { BuscarRolComponent } from './rol/buscar-rol/buscar-rol.component';
 
 //Registro_Permiso
 import { RegisterFormComponent } from './register/form/register.form.component';
@@ -53,9 +50,6 @@ import { ToolbarComponent } from './rol/toolbar/toolbar.component';
     RegistroToolbarComponent,
     ComentarioAgregarComponent,
     RolComponent,
-    MigasPanWebComponent,
-    ConsultarRolesComponent,
-    BuscarRolComponent,
     RegisterFormComponent,
     RegisterListComponent,
     RegisterToolbarComponent,
