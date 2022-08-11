@@ -53,11 +53,12 @@
 
         <input class="input input-primary" type="date" name="" id=""
         [(ngModel)]="currentEntity.updated">
+  
         <input class="input input-primary" type="date" name="" id=""
         [(ngModel)]="currentEntity.created">
       </div>
-
-      <h5>Persona</h5>
+      <hr>
+      <h5>PERSONA</h5>
       <select #selectPermiso (change)="onSelect(selectPermiso.value)" class="select select-primary" name="" id="" >
         <option value=0 selected disabled>Seleccionar</option>
         <option *ngFor="let person of Personas"
