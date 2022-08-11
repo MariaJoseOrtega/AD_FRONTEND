@@ -4,14 +4,13 @@ import { PermisoFormComponent } from '../feature/permiso/form/permiso-form.compo
 import { PermisoListComponent } from '../feature/permiso/list/permiso-list.component';
 import { RegistroFormComponent } from '../feature/registro/form/registro.form.component';
 import { RegistroListComponent } from '../feature/registro/list/registro-list.component';
-import { BuscarRolComponent } from '../feature/rol/buscar-rol/buscar-rol.component';
-import { ConsultarRolesComponent } from '../feature/rol/consultar-roles/consultar-roles.component';
 import { RolComponent } from '../feature/rol/form/rol.component';
 import { RegisterFormComponent } from '../feature/register/form/register.form.component';
 import { RegisterListComponent } from '../feature/register/list/register-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
 import { PersonListComponent } from '../feature/person/list/person-list.component';
+import { ListComponent } from '../feature/rol/list/list.component';
 
 const routes: Routes = [
   {path: '', component:MainComponent ,
@@ -26,12 +25,11 @@ const routes: Routes = [
       {path: 'dashboard', component:DashboardComponent},
       {path: 'rol', component:RolComponent},
       {path: 'rol/:id', component:RolComponent},
-      {path: 'consultar', component:ConsultarRolesComponent},
-      {path: 'buscar', component:BuscarRolComponent},
       {path: 'register-form', component:RegisterFormComponent},
       {path: 'register-form/:id', component:RegisterFormComponent},
       {path: 'register-list', component:RegisterListComponent},
-      {path: 'persona', component:PersonListComponent}
+      {path: 'persona', component:PersonListComponent},
+      {path: 'rol-list', component:ListComponent}
 
       
     ]

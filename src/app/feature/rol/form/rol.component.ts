@@ -9,10 +9,16 @@ import { PersonService } from '../../person/person.service';
   templateUrl: './rol.component.html'
 })
 export class RolComponent implements OnInit {
+
+  autorizacionList:any = [];
   rutas:migasInterface[] = [
     {
-      ruta:"/layout/buscar",
-      descripcion:"Roles"
+      ruta:"/layout/rol-list",
+      descripcion:"Rol"
+    },
+    {
+      ruta:"/layout/rol",
+      descripcion:"Gestión Roles"
     },
   ];
 
@@ -41,7 +47,7 @@ export class RolComponent implements OnInit {
   Personas:any=[];
 
   ngOnInit(): void {
-    this.personService.findAll().subscribe(res=>{
+    this.personService.findAll().subscribe(res=>{      
       this.Personas = res;
     })
     this.activatedRoute.paramMap.subscribe(
@@ -82,12 +88,13 @@ export class RolComponent implements OnInit {
     )
   }
   cancelar(){    
-    this._router.navigate(["layout","buscar"]);
+    this._router.navigate(["layout","rol-list"]);
   }
 
   findById(id: number):void {
     this.rolService.findById(id).subscribe(
       (response) => {
+        console.log(response);    
         this.currentEntity.rolId = response.rolId;
         this.currentEntity.name = response.name;
         this.currentEntity.admin = response.admin;
@@ -95,9 +102,36 @@ export class RolComponent implements OnInit {
         this.currentEntity.archived = response.archived;
         this.currentEntity.updated = new Date(response.updated).toISOString().split('T')[0];
         this.currentEntity.created = new Date(response.created).toISOString().split('T')[0];
+        this.currentEntity.fkpersonId = response.fkpersonId;
       }
     )
   }
+
+  selectPerson(id: number){
+    this.currentEntity.fkpersonId=""+id;
+    }
+
+    buscarList(lista:any, permiso:any){
+      for(let l of lista){
+        if(l.id === permiso.id)
+          return true;
+      }
+      return false;
+    }
+
+
+    autorizacion(permiso:any){
+      if(!this.buscarList(this.autorizacionList,permiso))
+          this.autorizacionList.push(permiso);
+    }
+    quitarAuth(permiso:any){
+      let aux = this.autorizacionList;
+      this.autorizacionList = [];
+      for(let aut of aux){
+        if (aut !== permiso)
+          this.autorizacionList.push(aut);
+      }
+    }
 
   deleteById():void{    
     this.rolService.deleteById(this.idEliminar).subscribe(
