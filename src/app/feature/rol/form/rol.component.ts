@@ -83,9 +83,11 @@ export class RolComponent implements OnInit {
 
   save():void {
     console.table(this.currentEntity);
+
+    if(+this.currentEntity.rolId !== 0)
     this.rolService.save(this.currentEntity)
     .subscribe(
-      () => {
+      (res) => {
         this.currentEntity =
         {
           rolId:0,
@@ -98,6 +100,35 @@ export class RolComponent implements OnInit {
           fkpersonId:""
         };
         this.cancelar();
+      }
+    )
+
+    if(+this.currentEntity.rolId === 0)
+    this.rolService.save(this.currentEntity)
+    .subscribe(
+      (res) => {
+        console.log("caso 2");
+        
+        for(let c of this.autorizacionList){
+          const rolAut:RolAuthority = {
+            rolid:res.rolId,
+            authorityid:c.id
+          }
+          this.rolService.saveoRolxAuthority(rolAut).subscribe(guardado=>{
+            this.currentEntity =
+            {
+              rolId:0,
+              name:"",
+              admin:true,
+              enable:true,
+              archived:true,
+              updated:"",
+              created:"",
+              fkpersonId:""
+            };
+            this.cancelar();
+          })
+        }  
       }
     )
   }
@@ -164,6 +195,24 @@ export class RolComponent implements OnInit {
       })
       
     }
+
+
+
+
+    autorizacion2(permiso:any){ 
+        if(!this.buscarList(this.autorizacionList,permiso)){
+            this.autorizacionList.push(permiso);
+        } 
+      }
+    quitarAuth2(permiso:any){
+      let aux = this.autorizacionList;
+      this.autorizacionList = [];
+      for(let aut of aux){
+        if (aut !== permiso)
+          this.autorizacionList.push(aut);
+      }  
+    }
+
 
   deleteById():void{    
     this.rolService.deleteById(this.idEliminar).subscribe(
