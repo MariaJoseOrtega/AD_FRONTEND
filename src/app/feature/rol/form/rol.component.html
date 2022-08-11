@@ -59,11 +59,15 @@
     </thead>
     <tbody>
 
-  <div class="flex flex-row p-2 bg-neutral rounded" *ngFor="let aut of autorizacionList"> 
-    <p>{{aut.name}}</p> <p (click)="quitarAuth(aut)">eliminar</p>
-  </div>
-    
-  <app-authority-search (authorityEmitter)="autorizacion($event)"></app-authority-search>
+      <div *ngIf="currentEntity.rolId !== 0">
+        <div class="flex flex-row p-2 bg-neutral rounded" *ngFor="let aut of autorizacionList"> 
+          <p>{{aut.name}}</p> <p (click)="quitarAuth(aut)">eliminar</p>
+        </div>   
+        <app-authority-search (authorityEmitter)="autorizacion($event)"></app-authority-search>
+      </div>
+      <div *ngIf="currentEntity.rolId === 0">
+        <p>Crear usuario para dar permisos</p>
+      </div>
     <br>
       <div class="card-actions">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>

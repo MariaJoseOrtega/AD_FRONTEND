@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { migasInterface, Rol } from 'src/app/feature/rol/rol';
+import { migasInterface, Rol, RolAuthority } from 'src/app/feature/rol/rol';
 import { RolService } from 'src/app/feature/rol/rol.service';
+import { AuthorityService } from '../../authority/authority.service';
 import { PersonService } from '../../person/person.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class RolComponent implements OnInit {
     private readonly _router:Router,
     private rolService: RolService,
     private personService:PersonService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private readonly autService: AuthorityService
   ) { }
 
   currentEntity: Rol=
@@ -47,6 +49,18 @@ export class RolComponent implements OnInit {
   Personas:any=[];
 
   ngOnInit(): void {
+    this.autorizacionList = [];
+    this.rolService.consultarPermisos().subscribe(permisos=>{
+      this.autService.findAll().subscribe(at=>{
+          for(let a of at ){
+            for(let p of permisos){
+              if (+a.id === p.authorityid && p.rolid === +this.currentEntity.rolId){
+                this.autorizacionList.push(a);
+              }
+            }
+          }
+      })
+    })
     this.personService.findAll().subscribe(res=>{      
       this.Personas = res;
     })
@@ -94,7 +108,6 @@ export class RolComponent implements OnInit {
   findById(id: number):void {
     this.rolService.findById(id).subscribe(
       (response) => {
-        console.log(response);    
         this.currentEntity.rolId = response.rolId;
         this.currentEntity.name = response.name;
         this.currentEntity.admin = response.admin;
@@ -121,16 +134,35 @@ export class RolComponent implements OnInit {
 
 
     autorizacion(permiso:any){
-      if(!this.buscarList(this.autorizacionList,permiso))
+      
+      if(!this.buscarList(this.autorizacionList,permiso)){
+        const rolAut:RolAuthority = {
+          rolid:this.currentEntity.rolId,
+          authorityid:permiso.id
+        }
+        this.rolService.saveoRolxAuthority(rolAut).subscribe(res=>{
           this.autorizacionList.push(permiso);
-    }
-    quitarAuth(permiso:any){
-      let aux = this.autorizacionList;
-      this.autorizacionList = [];
-      for(let aut of aux){
-        if (aut !== permiso)
-          this.autorizacionList.push(aut);
+        })
       }
+        
+      }
+    quitarAuth(permiso:any){
+  
+      this.rolService.consultarPermisos().subscribe(p => {
+          for(let a of p){
+            if(a.rolid === +this.currentEntity.rolId && a.authorityid === +permiso.id){
+              this.rolService.deleteByIdRolxAuthority(""+a.id).subscribe(borrar=>{
+                let aux = this.autorizacionList;
+                this.autorizacionList = [];
+                for(let aut of aux){
+                  if (aut !== permiso)
+                    this.autorizacionList.push(aut);
+                }
+              });
+            }
+          }
+      })
+      
     }
 
   deleteById():void{    

@@ -9,6 +9,12 @@ export interface Rol {
   fkpersonId:string
 }
 
+export interface RolAuthority {
+  id?:number,
+  rolid?:number,
+  authorityid?:number,
+}
+
 
 export interface migasInterface {
   ruta:string,
